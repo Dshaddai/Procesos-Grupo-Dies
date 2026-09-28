@@ -340,6 +340,26 @@ table.datos .vacio{color:var(--faint);font-style:italic}
 .entrada-caso button:hover{background:var(--guinda);color:#fff}
 
 .m-nuevo{color:var(--nuevo);background:var(--nuevo-wash)}
+.lema{
+  max-width:74ch;margin:0 0 42px;padding:0 0 0 22px;
+  border-left:3px solid var(--guinda);
+}
+.lema.reciente{border-left-color:var(--nuevo)}
+.lema-t{
+  font-family:var(--serif);font-size:30px;line-height:1.28;font-weight:600;
+  letter-spacing:-.015em;margin:0 0 14px;
+}
+.lema-d{font-family:var(--serif);font-size:20px;line-height:1.4;margin:22px 0 10px}
+ol.lema-l{margin:0;padding-left:26px}
+ol.lema-l li{
+  font-family:var(--serif);font-size:19px;line-height:1.5;padding:3px 0;
+}
+ol.lema-ab{list-style:lower-alpha}
+@media (max-width:760px){
+  .lema-t{font-size:24px}
+  .lema-d{font-size:17px}
+  ol.lema-l li{font-size:16.5px}
+}
 .resaltado{animation:realce 2.2s ease-out}
 .resaltado > td, .resaltado{background:var(--warn-wash) !important}
 @keyframes realce{0%{background:var(--warn-wash)}100%{background:transparent}}
@@ -429,7 +449,7 @@ body[data-inicial] .cambio.esteMes{border-left-color:var(--rule-hard)}
 <div class="marco">
   <header class="tope">
     <div class="marca">Políticas <span>·</span> despacho</div>
-    <div class="sello" id="sello">Borrador 9.1 — 14 sep 2026 · con HTTax, manual y formato de CB</div>
+    <div class="sello" id="sello">Borrador 9.5 — 28 sep 2026 · con HTTax, manual y formato de CB</div>
     <button class="interruptor" id="swEnlaces" aria-pressed="true"><i></i>Enlaces en el texto</button>
     <div class="buscador">
       <input id="q" type="search" placeholder="Buscar regla, cuenta, sigla…" autocomplete="off" aria-label="Buscar">
@@ -1839,7 +1859,20 @@ const REGLA_DUDA = {
     "Aplica sobre todo cuando la regla no existe. Un caso no previsto no lo resuelve quien lo encuentra por su cuenta: lo pregunta, y la respuesta se escribe para que la siguiente vez ya esté.",
     "El canal se elige con el mismo criterio de la comunicación interna: si hay respuesta en el momento puede ser en persona; si no, va a Zoho.",
     "Preguntar por la app todavía no existe. Es la vía prevista para que la duda quede registrada con su respuesta y con el crédito de quien la planteó."
-  ]
+  ],
+  formula:{
+    mod:"2026-09-28",
+    t:"Cómo se plantea una duda",
+    d:"Una consulta bien planteada lleva cuatro cosas, en este orden:",
+    pasos:[
+      "La duda.",
+      "El contexto.",
+      "El análisis apegado a procesos.",
+      "La regla en la que se apoya."
+    ],
+    cierre:"Lo que corresponde al jefe de contabilidad es orientar y aclarar, no decidir por quien consulta. En una duda orienta; en una autorización decide.",
+    sinRegla:"Si no se puede citar la regla, entonces no se consultó el proceso. Ahí la consulta cambia de naturaleza: ya no es una duda sobre cómo aplicar una regla, es el aviso de que esa regla no existe."
+  }
 };
 
 const COM_CLIENTE = {
@@ -2007,13 +2040,13 @@ function pintar(){
 /* ============================================================
    MODIFICACIONES
    ============================================================ */
-const HOY = "2026-09-14";
+const HOY = "2026-09-28";
 
 /* Fecha en que la app se dio a conocer al equipo. Mientras esté vacía, todo lo
    cargado se considera contenido inicial y nada se marca como reciente: para
    quien la abre por primera vez no hay cambios, hay contenido. Al ponerle fecha,
    el control de cambios se activa solo y marca lo posterior a ella. */
-const PUBLICADA = "";
+const PUBLICADA = "2026-09-27";
 
 const esReciente = f => !!PUBLICADA && !!f && f > PUBLICADA && f.slice(0,7) === HOY.slice(0,7);
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
@@ -2026,7 +2059,12 @@ const POLITICA_CAMBIOS = [
   "Quien vuelve después de una ausencia revisa esta sección antes de capturar."
 ];
 
-const CAMBIOS = [];
+const CAMBIOS = [
+  {f:"2026-09-28", k:"Regla", t:"Principio en la portada: todas nuestras acciones van apegadas a procesos", v:"tablero",
+   d:"En caso de duda se consulta el proceso y, si la duda persiste, se pregunta al jefe de contabilidad. La forma correcta de dirigirse a él es plantear la duda, dar contexto, fundamentarla con lo que sí dice el proceso o dónde es ambiguo, y manifestar qué se busca."},
+  {f:"2026-09-28", k:"Regla", t:"Fórmula para plantear una duda", v:"proceso",
+   d:"Una consulta lleva la duda, el contexto, el análisis apegado a procesos y la regla en la que se apoya. El jefe de contabilidad orienta y aclara, no decide por quien consulta. Si no se puede citar la regla, la consulta es el aviso de que esa regla no existe."}
+];
 
 
 const CAMBIOS_MES = CAMBIOS.filter(c=>esReciente(c.f));
@@ -2109,13 +2147,37 @@ const ETIQUETA = {
 
 function conflictosDe(n){ return CONFLICTOS.filter(c => c.et && c.et.includes(n) && !resuelto(c.id)); }
 
+const PRINCIPIO = {
+  mod:"2026-09-28",
+  t:"Todas nuestras acciones deben ir apegadas a procesos. En caso de duda:",
+  pasos:[
+    "Se consulta el proceso.",
+    "Si se tiene duda, se pregunta al jefe de contabilidad."
+  ],
+  d:"Si se tiene duda, la forma correcta de dirigirse al jefe de contabilidad es:",
+  forma:[
+    "Plantear la duda.",
+    "Proporcionar contexto de lo que realmente está pasando.",
+    "Fundamentar la duda con lo que sí dice el proceso, o dónde el proceso es ambiguo.",
+    "Manifestar qué se busca del jefe de contabilidad."
+  ]
+};
+
 function vTablero(){
   const hoy = new Date("2026-09-14");
   const sinResolver = CONFLICTOS.filter(c=>!resuelto(c.id)).length;
   const incompletas = ETAPAS.filter(e=>!e.ok).length;
   const manuales = PUNTOS.filter(p=>!p.a).length;
 
-  let h = `<h1>Tablero de procesos</h1>
+  let h = `
+  <section class="lema${esReciente(PRINCIPIO.mod)?" reciente":""}">
+    <p class="lema-t">${esc(PRINCIPIO.t)}</p>
+    <ol class="lema-l">${PRINCIPIO.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+    <p class="lema-d">${esc(PRINCIPIO.d)}</p>
+    <ol class="lema-l lema-ab">${PRINCIPIO.forma.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+  </section>
+
+  <h1>Tablero de procesos</h1>
   <p class="entrada">Las once etapas del cierre, con el estado de Zoho que les corresponde. Cada tarjeta abre sus subprocesos, con el problema conocido y la solución que ya se encontró.</p>
 
   <div class="objetivos">
@@ -2365,7 +2427,7 @@ function vFaltantes(){
     h += `<h2>${esc(TIPOS[t].n)}</h2>
     <p class="entrada" style="margin-bottom:12px">${esc(TIPOS[t].d)}</p>
     <table class="datos"><tr><th style="width:36%">Qué falta</th><th>Por qué está en la lista</th><th style="width:96px">Urgencia</th></tr>`;
-    fs.forEach(f=> h += `<tr><td style="font-weight:500;border-left:2px solid ${f.p===1?TIPOS[t].c:'transparent'};padding-left:12px">${esc(f.r)}${esReciente(f.mod)?' <span class="marbete m-nuevo">nuevo</span>':''}</td>
+    fs.forEach(f=> h += `<tr><td style="font-weight:500;border-left:2px solid ${f.p===1?TIPOS[t].c:'transparent'};padding-left:12px">${esc(f.r)}${esReciente(f.mod)?' ':''}</td>
       <td style="color:var(--soft)">${esc(f.c)}</td>
       <td><span class="marbete ${f.p===1?'m-alto':(f.p===2?'m-tibio':'m-gris')}">${f.p===1?"ya falló":(f.p===2?"riesgo":"de fondo")}</span></td></tr>`);
     h += `</table>`;
@@ -2404,7 +2466,7 @@ function vCuentas(){
   <p class="entrada">Entrar por la cuenta y encontrar en un solo lugar qué se registra ahí, cómo se revisa el saldo, qué riesgos tiene y en qué etapas del cierre aparece.</p>
 
   <h2>${esc(REGLAS_GENERALES.t)}</h2>
-  ${REGLAS_GENERALES.reglas.map(r=>`<p class="cita${esReciente(REGLAS_GENERALES.f)?" reciente":""}">${r.h}</p>`).join("")}
+  ${REGLAS_GENERALES.reglas.map(r=>`<p class="cita${esReciente(r.mod||REGLAS_GENERALES.f)?" reciente":""}">${r.h}</p>`).join("")}
   <p style="max-width:70ch;font-size:14px;color:var(--soft);margin:10px 0 30px">${REGLAS_GENERALES.notaH}</p>
 
   <h2>Las cuentas</h2>
@@ -2415,7 +2477,7 @@ function vCuentas(){
     h += `<tr style="cursor:pointer" data-cuenta="${c.id}">
       <td style="font-family:var(--serif);font-size:16px"><b style="font-weight:600">${esc(c.n)}</b></td>
       <td style="color:var(--soft)">${resumenDe(c)}</td>
-      <td><span class="marbete ${cl}">${tx}</span>${esReciente(c.mod)?' <span class="marbete m-nuevo">nuevo</span>':''}</td></tr>`;
+      <td><span class="marbete ${cl}">${tx}</span>${esReciente(c.mod)?' ':''}</td></tr>`;
   });
   h += `</table>`;
   setTimeout(()=> document.querySelectorAll("[data-cuenta]").forEach(t=> t.onclick = ()=> ir("cuentas", t.dataset.cuenta)),0);
@@ -2512,13 +2574,13 @@ function vProceso(){
   });
   h += `</table>
   <div class="ficha" style="margin-top:16px">
-    <div class="ficha-tope"><h3>Por qué existe esta lista</h3><span class="marbete m-nuevo">nuevo</span></div>
+    <div class="ficha-tope"><h3>Por qué existe esta lista</h3></div>
     <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Nació de cinco cosas que al contador se le seguían olvidando aunque se le dijeran verbalmente: no depurar la CB, no hacer el asiento de acreditamiento de IVA, no revisar saldos, no registrar los impuestos declarados en el mes anterior —sobre todo cuando no hubo transferencia que hacer porque hubo acreditamientos o compensaciones—, y no verificar que todos los comprobantes fiscales estuvieran capturados.</p>
     <p style="margin:0;font-size:14.5px;color:var(--soft)">No duplica los puntos de auditoría de HTTax. Esta lista es autocontrol del que ejecuta; aquellos son control de calidad del que revisa. Hoy son dos personas distintas.</p>
   </div>
   <div class="ficha" style="margin-top:10px;border-color:var(--guinda)">
   <div class="ficha" style="margin-top:10px">
-    <div class="ficha-tope"><h3>Qué es y qué no es esta lista</h3><span class="marbete m-nuevo">nuevo</span></div>
+    <div class="ficha-tope"><h3>Qué es y qué no es esta lista</h3></div>
     <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Es un recordatorio de la revisión que debió hacerse antes, no un control del tiempo en que se hace cada revisión. Por eso se marca al terminar: primero el trabajo, después el repaso para confirmar que no faltó nada.</p>
     <p style="margin:0;font-size:14.5px;color:var(--soft)">Tampoco duplica los puntos de auditoría de HTTax. Esta lista es autocontrol del que ejecuta; aquellos son control de calidad del que revisa.</p>
     <div class="fila-btn"><button class="btn btn-hueco" data-conf3="c-redundante">Ver el detalle</button></div>
@@ -2531,7 +2593,7 @@ function vProceso(){
   <h2>Tablero de Zoho</h2>
   <p class="entrada" style="margin-bottom:14px">Cada movimiento de sección deja registro con firma y fecha. La ficha pasa a revisión cuando captura y conciliación están terminadas; el jefe de contabilidad no revisa nada que no esté en esa sección.</p>
   <div class="ficha" style="border-left:2px solid var(--nuevo);margin-bottom:14px">
-    <div class="ficha-tope"><h3>Qué significa que una ficha esté detenida</h3><span class="marbete m-nuevo">nuevo</span></div>
+    <div class="ficha-tope"><h3>Qué significa que una ficha esté detenida</h3></div>
     <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Que no hay nada que hacer salvo seguir recordándole al cliente, con la cadencia que corresponda según si la observación detiene el cierre o no.</p>
     <p style="margin:0;font-size:14.5px;color:var(--soft)">Si el cliente no contesta, no es responsabilidad del despacho avanzar. La responsabilidad se pausó en el momento en que dejó de contestar. Incluso conviene que el SAT mande cartas invitación o requerimientos, porque es lo que hace que el cliente tome conciencia.</p>
   </div>
@@ -2549,14 +2611,21 @@ function vProceso(){
 
   <h2>Cuando no hay regla</h2>
   <div class="ficha" style="border-left:2px solid var(--nuevo)">
-    <div class="ficha-tope"><h3>Preguntar es parte del proceso</h3><span class="marbete m-nuevo">nuevo</span></div>
+    <div class="ficha-tope"><h3>Preguntar es parte del proceso</h3></div>
     <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.regla)}</p>
     <ul class="lista" style="font-size:14.5px">${REGLA_DUDA.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+  </div>
+  <div class="ficha${esReciente(REGLA_DUDA.formula.mod)?" reciente":""}">
+    <div class="ficha-tope"><h3>${esc(REGLA_DUDA.formula.t)}</h3>${esReciente(REGLA_DUDA.formula.mod)?'<span class="marbete m-nuevo">nuevo</span>':""}</div>
+    <p style="margin:0 0 6px;font-size:14.5px">${esc(REGLA_DUDA.formula.d)}</p>
+    <ul class="condiciones" style="margin:0 0 12px">${REGLA_DUDA.formula.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.formula.cierre)}</p>
+    <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(REGLA_DUDA.formula.sinRegla)}</p>
   </div>
 
   <h2>Comunicación con el cliente</h2>
   <div class="ficha" style="border-left:2px solid var(--nuevo)">
-    <div class="ficha-tope"><h3>Qué recibe el cliente y por dónde</h3><span class="marbete m-nuevo">nuevo</span></div>
+    <div class="ficha-tope"><h3>Qué recibe el cliente y por dónde</h3></div>
     <p class="cita" style="margin-bottom:12px">${esc(COM_CLIENTE.regla)}</p>
     <ul class="lista" style="font-size:14.5px">${COM_CLIENTE.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
   </div>
@@ -2572,7 +2641,7 @@ function vProceso(){
   <h2>Comunicación interna</h2>
   <div class="ficha"${esReciente(COMUNICACION.f)?' style="border-left:2px solid var(--nuevo)"':''}>
     <div class="ficha-tope"><h3>Qué va por Zoho y qué puede ser verbal</h3>
-      ${esReciente(COMUNICACION.f)?'<span class="marbete m-nuevo">nuevo</span>':''}</div>
+      ${esReciente(COMUNICACION.f)?'':''}</div>
     <p class="cita" style="margin-bottom:12px">${esc(COMUNICACION.regla)}</p>
     <ul class="lista" style="font-size:14.5px">${COMUNICACION.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
   </div>`;
@@ -2742,7 +2811,7 @@ function vFormato(){
         ${r.cierre?`<p style="margin:8px 0 0;font-family:var(--serif);font-size:15.5px">${esc(r.cierre)}</p>`:""}
         ${r.nota?`<p class="rnota">${esc(r.nota)}</p>`:""}
         ${r.notaSub?`<ul class="condiciones" style="margin-top:6px">${r.notaSub.map(x=>`<li style="font-size:14px">${esc(x)}</li>`).join("")}</ul>`:""}
-        ${esReciente(r.mod)?'<span class="marbete m-nuevo">nuevo</span>':""}</div>
+        ${esReciente(r.mod)?'':""}</div>
       </div>`).join("");
 
     if(sec.grupos){
