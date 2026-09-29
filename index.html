@@ -402,7 +402,7 @@ body[data-inicial] .cambio.esteMes{border-left-color:var(--rule-hard)}
 <div class="marco">
   <header class="tope">
     <div class="marca">Políticas <span>·</span> despacho</div>
-    <div class="sello" id="sello">Borrador 11.7 — 28 sep 2026 · con HTTax, manual y formato de CB</div>
+    <div class="sello" id="sello">Borrador 12.1 — 28 sep 2026 · con HTTax, manual y formato de CB</div>
     <button class="interruptor" id="swEnlaces" aria-pressed="true"><i></i>Enlaces en el texto</button>
     <div class="buscador">
       <input id="q" type="search" placeholder="Buscar regla, cuenta, sigla…" autocomplete="off" aria-label="Buscar">
@@ -667,114 +667,6 @@ const FORMATO_CB = {
 const EJEMPLOS_CB = [];
 
 
-const CONFLICTOS = [
-  {
-    id:"c-annb", et:[6,8], t:"¿Un ANNB bloquea el cierre siempre, o solo si toca IVA acreditable?",
-    grav:"Cerrada",
-    cerrado:{txt:"No se permiten ANNB. Todos los ANNB deben ser aclarados sin excepción. Se derogan la excepción de no objeto de IVA y la de persona física o RESICO. Redacción unificada en la ficha de Zoho y en las celdas E80 y E103 del formato de CB.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Cómo estaba", x:"Tres redacciones distintas: el manual prohibía cualquier partida, Zoho bloqueaba solo si tocaban IVA acreditable, y el formato de CB permitía las no objeto de IVA salvo en persona física o RESICO."},
-    b:{f:"Cómo quedó", x:"No se permiten ANNB. Todos los ANNB deben ser aclarados sin excepción. Misma redacción en la ficha de Zoho, en E80 y en E103 del formato de CB."},
-    porq:"La excepción de no objeto de IVA y la de RESICO quedaron derogadas. Las tres fuentes dicen ahora lo mismo, que era el punto.",
-    pide:"Falta propagar la redacción al manual de proceso, etapa 8, que sigue con el texto de enero de 2025 y no se ha tocado.",
-    ver:"proceso"
-  },
-  {
-    id:"c-aclarar", et:[6,8], t:"¿Qué cuenta como «aclarado»?",
-    grav:"Cerrada",
-    mod:"2026-09-14",
-    cerrado:{txt:"Son dos cosas distintas. La anotación de una partida no autoriza la CB ni el cierre: sirve para que el jefe de contabilidad entienda el contexto del movimiento y pueda apoyar al contador a resolver la duda y lograr la depuración. Aclarar significa que la partida queda entendida y depurada, no explicada. «No supe cómo depurarlo» es la forma correcta de escalar, y el apoyo se pide por Zoho.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que parecía", x:"Que la anotación de una partida funcionaba como criterio de cierre, y que «no supe cómo depurarlo» permitía cerrar con la partida abierta."},
-    b:{f:"Lo que es", x:"La anotación traslada contexto hacia arriba para que el jefe de contabilidad pueda apoyar. Quién puede quedarse lo decide la condición de salida, y ahí ANNB no admite excepción."},
-    porq:"«No supe cómo depurarlo» deja de ser una puerta de escape y se vuelve lo contrario: es la forma correcta de escalar, el equivalente dentro de la CB de lo que el panel de seguimiento hace con los casos no contemplados. Si esa opción no existiera, la alternativa sería que el CP invente una depuración o se quede callado.",
-    pide:"El apoyo se pide por Zoho y debe ocurrir antes del cierre. Falta escribir que la ficha no puede llegar a revisión con partidas escaladas sin resolver.",
-    ver:"proceso"
-  },
-  {
-    id:"c-mescerrado", et:[6,8], t:"Modificar un mes cerrado está prohibido y a la vez previsto",
-    grav:"Cerrada",
-    cerrado:{txt:"Un CBNN se registra en el mes en que se descuenta del estado de cuenta. El mes de emisión del comprobante tipo ingreso debe coincidir con el mes del CBNN. Si al cierre no hay comprobante, se trata conforme a gastos por comprobar. Si llega después del cierre, su fecha de emisión debe ser posterior al mes del CBNN, y su IVA se acredita en el mes de emisión siempre que no se exceda el plazo de gastos por comprobar.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Políticas de registro, reglas generales", x:"No se modifica ninguna balanza de meses anteriores una vez presentadas las declaraciones del último mes cerrado. Solo con autorización del jefe de contabilidad mediante solicitud en Zoho, con el motivo que la amerita."},
-    b:{f:"Cómo quedó, 14 de septiembre de 2026", x:"Un CBNN se registra en el mes en que se descuenta del estado de cuenta. Si al cierre no hay comprobante, se trata conforme a gastos por comprobar. Si el comprobante llega después, su fecha de emisión debe ser posterior al mes del CBNN."},
-    porq:"La redacción anterior permitía modificar la balanza y solo pedía dejar rastro. La nueva ya no modifica nada: el registro se queda en su mes y el comprobante tardío se queda en el suyo. La prohibición general queda intacta y la excepción desaparece en lugar de legalizarse.",
-    pide:"Falta propagarlo al manual de proceso, etapa 2, que sigue diciendo que un XML del mes siguiente descargado derivado del cierre se coloca en el mes de emisión sin más.",
-    ver:"proceso"
-  },
-  {
-    id:"c-centavo", et:[6,7,8], t:"¿Cuándo un centavo es ruido y cuándo es un saldo que debe quedar en cero?",
-    grav:"Ya produjo error",
-    cerrado:{txt:"En la cuenta de diferencia de registro de rubro 4 y de rubro 6 solo se registran diferencias de centavos menores a $0.99. Los cargos y abonos mayores a un peso se revisan, porque en lugar de una diferencia de centavos pueden ser un error de registro. El umbral de $10 de HTTax no es otra regla: es un parámetro razonable de alerta, porque la herramienta no puede leer el auxiliar de esas cuentas y no tiene forma de distinguir un centavo de un error. En las demás cuentas, todo saldo con diferencia entre más y menos un peso se verifica mediante la integración de saldos, y los centavos se saldan según la razonabilidad de la cuenta contra la cuenta de diferencia de registro.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que parecía", x:"Tres controles distintos con el mismo nombre: direccional a un peso en el manual, en abonos a un peso en los dos rubros en Zoho, y de magnitud a diez pesos en HTTax. Un residuo de $7 pasaba el punto de auditoría y reprobaba el manual al mismo tiempo."},
-    b:{f:"Lo que es", x:"Son tres niveles, no tres reglas. El criterio es $0.99 en la cuenta de diferencia de registro. El $10 de HTTax es alerta, no criterio, y existe porque la herramienta no puede leer el auxiliar. Y en las demás cuentas el umbral de un peso dispara la integración de saldos, no el ajuste automático."},
-    porq:"El $0.77 de proveedores y el $0.01 de las dos facturas ya tienen destino: si la lógica indica que ese centavo ya no se debe, se salda contra la cuenta de diferencia de registro. Y el control es direccional por diseño: cada cuenta se revisa por el lado natural de su rubro, y el lado contrario se reclasifica completo en lugar de revisarse. El umbral de un peso no está ahí porque un peso importe, sino porque por encima de él la diferencia ya no se explica por redondeo: un error de registro puede quedar oculto dentro de lo que parece un centavo.",
-    pide:"Resuelto. El manual ya era direccional y estaba bien; el punto 9 de la lista de Zoho se corrigió el 14 de septiembre de 2026 para pedir cargos en rubro 6.",
-    ver:"revision"
-  },
-  {
-    id:"c-nombre", et:[5,8], t:"La cuenta de IVA no acreditable tiene cuatro nombres",
-    grav:"Cerrada",
-    cerrado:{txt:"Los cuatro nombres eran la misma cuenta: «IVA No acreditable deducible», «IVA DEDUCIBLE NO ACREDITABLE», «IVA DEDUCIBLE no Acreditable» e «IVA no Acreditable». Se renombra a IVA NO ACREDITABLE DEDUCIBLE y ese es el único nombre válido. «IVA NO ACREDITABLE FACTOR» no se toca: es otra cuenta.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Cómo estaba", x:"Cuatro nombres para la misma cuenta, repartidos en Caja, IVA acreditable, IVA por acreditar y Gastos generales."},
-    b:{f:"Cómo quedó, 14 de septiembre de 2026", x:"IVA NO ACREDITABLE DEDUCIBLE. Un solo nombre. Sigue existiendo por separado IVA NO ACREDITABLE FACTOR, que es la del factor de acreditamiento del artículo 5 de LIVA."},
-    porq:"Mientras hubo cuatro nombres, el mismo caso se registraba en cuentas distintas según quién capturara, y la prueba de IVA podía no cuadrar por una razón que no era contable.",
-    pide:"Falta darla de alta en el catálogo del despacho, y falta el concepto agrupador en HTTax. Son dos cosas distintas: el nombre es del catálogo, el casillero es del papel de trabajo. Mientras no exista el concepto, la prueba de IVA acreditable del punto 21 no puede amarrar la parte no acreditable."
-  },
-  {
-    id:"c-cliente", et:[8], t:"¿Se detiene el cierre esperando al cliente, o se sigue?",
-    grav:"Cerrada",
-    cerrado:{txt:"Lo que se espera del cliente es la respuesta, no el comprobante. En un CBNN no es obligatorio que consiga el comprobante fiscal: basta con que diga que ese CBNN no tendrá comprobación, y con eso se reconoce en sin comprobante fiscal. La ficha no avanza mientras no haya respuesta.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que parecía", x:"Que el manual detenía la ficha esperando al cliente y las políticas de bancos mandaban seguir sin él."},
-    b:{f:"Lo que es", x:"Son dos objetos distintos. El manual espera una respuesta; las políticas dicen que no se espera un comprobante. Un cliente que contesta «no va a haber factura» ya respondió, y con eso la observación queda resuelta."},
-    porq:"La política de gastos por comprobar ya decía la mitad: preguntar si el proveedor emitirá la factura o si será una operación sin comprobante fiscal. Faltaba decir que la segunda respuesta basta y cierra el caso, sin esperar los dos meses del plazo.",
-    pide:"Sigue faltando la regla de reiteración: qué se hace cuando el cliente no contesta nada, ni que sí ni que no. Y el estado de detenido por el cliente sigue sin existir en el tablero.",
-    ver:"proceso"
-  },
-  {
-    id:"c-universo", et:[6], t:"El universo de cuentas a conciliar sale de la balanza, no de la realidad",
-    grav:"Cerrada, interina",
-    cerrado:{txt:"Por ahora no se tienen cuentas bancarias a conciliar por contrato. Mientras no exista contrato, el universo de cuentas a conciliar resulta de las subcuentas contables que hayan tenido movimientos en el año, no en el mes. Cuando exista contrato, el universo pasa a ser un dato del contrato.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que parecía", x:"Que el universo debía venir del contrato y que sacarlo de la balanza era la falla."},
-    b:{f:"Cómo quedó, 14 de septiembre de 2026", x:"Interino, porque hoy no hay contrato: el universo son las subcuentas contables con movimientos en el año. Anclarlo al año y no al mes evita que una cuenta desaparezca del control: una tarjeta que se movió en enero sigue en el universo de octubre."},
-    porq:"La decisión reconoce lo que hay en lugar de pedir lo que no existe, y aun así corrige el hueco que originó el caso. Antes bastaba con que la cuenta no tuviera movimientos ese mes para desaparecer del control.",
-    pide:"Queda una cosa por definir, y es la que hace que la regla funcione o no: si una cuenta del universo anual no tuvo movimientos en el mes, HTTax hoy la da por válida sin pedir conciliación. Con la regla nueva debería pedirla igual, con diferencia cero. Y queda el hueco residual de la cuenta que el cliente abrió y nunca nos dijo, que no tiene movimientos capturados en ningún mes del año."
-  },
-  {
-    id:"c-redundante", et:[8], t:"¿La lista de Zoho duplica los puntos de auditoría de HTTax?",
-    grav:"No era contradicción",
-    cerrado:{txt:"No se duplican: son dos controles distintos sobre dos personas distintas. La lista de Zoho es autocontrol del que ejecuta, y nació porque al contador se le seguía olvidando algo aunque se le dijera verbalmente: no depurar la CB, no hacer el asiento de acreditamiento, no revisar saldos, no registrar los impuestos del mes anterior, no verificar que todos los comprobantes estuvieran capturados. Los puntos de auditoría de HTTax son control de calidad del que revisa. Hoy son dos personas distintas.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lista de comprobación de Zoho", x:"Autocontrol del contador. Existe para que sepa qué compone un cierre completo antes de entregarlo, y para hacerle ver qué es un cierre completo."},
-    b:{f:"HTTax, puntos de auditoría", x:"Control de calidad del jefe de contabilidad. Treinta y uno de los treinta y seis se calculan solos, pero quien los corre es quien recibe el trabajo, no quien lo produce."},
-    porq:"Medir lo mismo no es hacer lo mismo. Eliminar la lista porque HTTax cubre esos puntos le quitaría al contador su única guía de qué es un cierre completo, y dejaría que el error lo detecte el revisor. Es justo al revés de lo que se busca.",
-    pide:"Queda por revisar si la lista todavía cubre los cinco olvidos que la originaron. El momento de marcado no es problema: es un recordatorio de la revisión que debió hacerse antes, así que marcarla al terminar es lo que corresponde.",
-    ver:"proceso"
-  },
-  {
-    id:"c-deposito", et:[4,6], t:"Un depósito que el cliente no reconoce tiene dos destinos distintos",
-    grav:"Cerrada",
-    cerrado:{txt:"Primero hay que preguntarle al cliente, y que él diga que no sabe de quién es el depósito. Hasta entonces incide el criterio de las políticas de registro. Después, el corte lo da el medio: si el depósito entró en efectivo aplica la cascada, y corre completa tenga o no la empresa caja irreal. Si entró por transferencia, cheque o depósito en cuenta, va a acreedores diversos subcuenta DEPÓSITOS NO IDENTIFICADOS.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que parecía", x:"Dos destinos distintos para el mismo hecho: la cascada de caja por un lado y acreedores diversos por el otro, sin decir cuál aplicaba."},
-    b:{f:"Lo que es", x:"Dos condiciones encadenadas. La primera es que el cliente ya haya dicho que no sabe; sin eso no hay tratamiento que dar. La segunda es el medio por el que entró el dinero, que decide entre las dos reglas."},
-    porq:"El prerrequisito faltaba por completo: las políticas describían qué hacer con un depósito no identificado sin decir que identificar es preguntar. Y el corte por medio de pago estaba implícito en el texto —la cascada vive bajo el supuesto de un depósito en efectivo— pero nunca se había enunciado.",
-    pide:"Falta escribirlo en los dos lados. Y conviene corregir el segundo escalón de la cascada, que dice «si no existe caja irreal» cuando el encabezado del inciso ya supone que sí la hay: esa lectura se resolvió en favor de que la cascada corre siempre."
-  },
-  {
-    id:"c-meses", et:[8], t:"Modificar un mes ya cerrado está redactado distinto en dos lados",
-    grav:"Cerrada",
-    cerrado:{txt:"Política: no se modifica ninguna balanza de meses anteriores una vez presentadas las declaraciones del último mes cerrado. Solo con autorización del jefe de contabilidad mediante solicitud en Zoho, y la solicitud debe contener el motivo que amerita la modificación. Zoho: cuando la tarea llega a CIERRE AUTORIZADO ya no se realiza ninguna modificación, salvo que el jefe de contabilidad lo autorice mediante solicitud en Zoho. Se retira la sanción: el control es el procedimiento, no la amenaza.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Cómo estaba", x:"Dos redacciones distintas para el mismo hecho, sin procedimiento. Una nombraba a quien autoriza y la otra solo decía «autorización expresa», y ninguna decía cómo se pedía ni dónde quedaba registrada."},
-    b:{f:"Cómo quedó, 14 de septiembre de 2026", x:"Las dos se complementan en lugar de competir: la política cubre desde que se presentaron las declaraciones del último mes cerrado, y la de Zoho cubre desde que la ficha entra a CIERRE AUTORIZADO, que ocurre antes. La autorización es del jefe de contabilidad, por solicitud en Zoho, con el motivo que la amerita."},
-    porq:"Entre las dos redacciones ya no queda hueco, la figura quedó clara en el jefe de contabilidad, y la autorización pasó de ser de palabra a tener folio, fecha y firma.",
-    pide:"Resuelto el 14 de septiembre de 2026: el jefe de contabilidad valora si amerita complementaria en cuanto verifica que la modificación quedó hecha, y la presenta en el momento. Todo el intercambio vive en un solo hilo de Zoho."
-  },
-  {
-    id:"c-acreedores", et:[5], t:"La política de acreedores bancarios no habla de acreedores bancarios",
-    grav:"Cerrada",
-    cerrado:{txt:"Son acreedores bancarios los préstamos con bancos, las tarjetas de crédito y los créditos automotrices. Son acreedores diversos los préstamos distintos a esos. Se abona por la disposición del crédito y por el consumo con tarjeta. En la domiciliación los intereses se registran con base en el estado de cuenta del crédito y en el mismo asiento el cargo al capital, aunque el CFDI del banco llegue al mes siguiente. Los intereses devengados y no pagados se abonan a acreedores bancarios, no a proveedores.", fecha:"14 de septiembre de 2026", quien:"Dirección"},
-    a:{f:"Lo que estaba", x:"El apartado de registro de acreedores bancarios tenía el texto de acreedores diversos, palabra por palabra. Los préstamos bancarios, que son lo que esa cuenta debe registrar, no tenían política."},
-    b:{f:"Lo que quedó, 14 de septiembre de 2026", x:"Reglas propias del rubro: qué es acreedor bancario, cómo se registra la disposición, cómo se separan capital e intereses en la domiciliación y dónde viven los intereses devengados."},
-    porq:"No era un choque de criterios sino un error de copiado: el único de los once que no requería decidir nada, solo escribir lo que faltaba.",
-    pide:"Falta confirmar en el catálogo de HTTax, que tampoco tiene cuenta de mayor para este rubro."
-  }
-];
 
 const FALTANTES = [
     {tipo:"hacer", r:"Registro de cuentas y tarjetas por empresa", c:"La validación de conciliación saca el universo de la balanza, así que una cuenta nunca capturada no existe para el control y sale en verde.", p:1},
@@ -1014,7 +906,7 @@ const CUENTAS = [
       {t:"El IVA de CFDI tipo egreso se carga en negativo, nunca mediante abono."},
       {t:"El IVA de un comprobante no deducible por LISR se carga a la cuenta de gastos IVA NO ACREDITABLE DEDUCIBLE.", f:"Nombre unificado el 14 de septiembre de 2026", mod:"2026-09-14"},
       {t:"El IVA no acreditable por factor del artículo 5 de LIVA o por proporción de público en general va a «IVA NO ACREDITABLE FACTOR»."},
-      {t:"En el asiento de acreditamiento no se redondea nada.", conflicto:"c-centavo"},
+      {t:"En el asiento de acreditamiento no se redondea nada."},
       {t:"Si del acreditamiento sale impuesto a cargo y hay saldo a favor suficiente, la aplicación del saldo a favor se registra hasta el mes siguiente."},
       {t:"El IVA acreditable exclusivamente se carga, aunque venga de devoluciones y descuentos."},
      {t:"Cuando un CFDI se registra a sin comprobante fiscal o a no deducibles, se elimina su control de IVA.", f:"Registro contable · 14 de septiembre de 2026", mod:"2026-09-14",
@@ -1437,7 +1329,7 @@ const CHECKLIST = [
   {t:"¿Cuadra el reporte de IVA contable con el IVA fiscal?", ht:"Puntos 19, 26 y 32, automatizados"},
   {t:"Si hay cuotas IMSS o Infonavit en el mes, no asignarles control de IVA.", ht:"Sin equivalente", queda:1, nota:"Las aportaciones de seguridad social son no objeto de IVA."},
   {t:"Si hay impuesto sobre nómina en el mes, no asignarle control de IVA.", ht:"Sin equivalente", queda:1},
-  {t:"Si en la conciliación bancaria existen ANNB, no se puede cerrar la balanza así: se deben aclarar todos los ANNB.", origen:1, mod:"2026-09-14", ht:"Punto 15, no verificable", queda:1, nota:"HTTax no detecta la presencia de ANNB: los puntos 14 a 16 solo comprueban que el saldo cuadre. Esta regla se verifica a ojo.", choca:"c-annb"},
+  {t:"Si en la conciliación bancaria existen ANNB, no se puede cerrar la balanza así: se deben aclarar todos los ANNB.", origen:1, mod:"2026-09-14", ht:"Punto 15, no verificable", queda:1, nota:"HTTax no detecta la presencia de ANNB: los puntos 14 a 16 solo comprueban que el saldo cuadre. Esta regla se verifica a ojo."},
   {t:"¿Se hizo el asiento de acreditamiento de IVA?", origen:1, ht:"Punto 22, manual también en HTTax"},
   {t:"¿La diferencia de registro de R4 tiene abonos mayores a un peso?", ht:"Punto 3, alerta a $10", origen:1, nota:"Correcto: en ingresos el lado natural es el abono. El cargo que aparezca ahí no se revisa por importe, se reclasifica a la cuenta de rubro 6.", mod:"2026-09-14"},
   {t:"¿La diferencia de registro de R6 tiene cargos mayores a un peso?", ht:"Punto 4, alerta a $10", origen:1, nota:"Corregido en Zoho el 14 de septiembre de 2026: antes decía abonos. El control es direccional, cada rubro por su lado natural.", mod:"2026-09-14"},
@@ -1509,33 +1401,6 @@ const COM_CLIENTE = {
 
 
 
-const UBICACIONES = [
-  {n:"Manual de proceso", u:"02_PROCESOS.xlsx, hoja Proceso", c:"11 etapas con 52 subprocesos fechados, problemas y soluciones"},
-  {n:"Planeación semanal", u:"02_PROCESOS.xlsx, hojas Planeacion Ideal y Planeacion Seg", c:"Calendario de cierre por cliente y en qué días del mes manda su estado de cuenta cada uno"},
-  {n:"Matriz de cumplimiento", u:"02_PROCESOS.xlsx, hoja Hoja1", c:"371 casillas de declaraciones presentadas por cliente y obligación, 82.7% de cumplimiento"},
-  {n:"Filosofía", u:"02_PROCESOS.xlsx, hoja Filosofia", c:"Ciclo de planeación, organización, dirección y control"},
-  {n:"Archivo digital", u:"02_PROCESOS.xlsx, hoja Archivo Digital", c:"Estructura de carpetas por cliente"},
-  {n:"Políticas de registro y revisión de saldos", u:"Documento propio", c:"Criterios por cuenta"},
-  {n:"Empresas activas", u:"C:\\SERVIDOR\\SERVIDOR\\01 CONTABILIDADES\\EMPRESAS ACTIVAS.XLSX", c:"Alcance del mes por empresa, de qué empresas se solicitan estados de cuenta y por qué medio, y el medio por el que se envían las declaraciones"},
-  {n:"Reglas de CB", u:"Migrado a la app el 14 de septiembre de 2026. La hoja Reglas del .xlsm debe eliminarse", c:"Método G10, depuración por tipo de partida, anotación de partidas y condiciones de CB terminada, con ejemplos"},
-  {n:"Escrito de pendientes", u:"Carpeta de papeles de trabajo del cliente", c:"Se sigue llevando pero ya no se envía ni se revisa. Podaba sin dejar rastro, así que dejó de poder supervisarse", perdido:1},
-  {n:"Bitácora sobre el VPS", u:"En planes", c:"Reemplazo del escrito de pendientes, automatizado y conservando lo cerrado"},
-  {n:"Políticas contables específicas", u:"Ruta no registrada", c:"Particularidades por cliente", perdido:1},
-  {n:"Archivo de utilerías", u:"Ruta no registrada", c:"Macro de diferencia IVA contable-fiscal", perdido:1},
-  {n:"Anotación de secciones", u:"Zoho Connect, cada sección del tablero", c:"Reglas de movimiento entre columnas"},
-  {n:"Anotación por empresa", u:"Zoho Connect, ficha de cada empresa", c:"Alcance y cadencia"},
-  {n:"Lista de comprobación", u:"Zoho Connect, dentro de cada ficha", c:"10 puntos que hoy deciden cuándo se puede pasar de la etapa 8"},
-  {n:"HTTax", u:".xlsm hasta el cierre de julio de 2026; .html desde el cierre de agosto y en adelante", c:"Papeles de trabajo fiscales y 36 puntos de auditoría. Revisor, no contabilizador: mapea las cuentas de la balanza contra conceptos de papel de trabajo"},
-  {n:"Tesorería", u:"App propia sobre VPS", c:"Captura de XML y generación de póliza"},
-  {n:"Prototipo CB 2024", u:"364 líneas de reglas", c:"Reglas de conciliación"},
-  {n:"Macros de integración", u:"Archivos del CP interno", c:"Saldos de clientes y proveedores, prueba de IVA, actos al 0%"},
-  {n:"Canal de YouTube", u:"02_PROCESOS.xlsx, hoja Hoja1 (2)", c:"10 videos: prueba de IVA, comprobantes, cierre, DIOT, revisión de saldos I y II, macros de Excel"},
-  {n:"Documento de puesto", u:"Diciembre 2024", c:"Perfil, matriz de conocimientos, objetivos día 15 y día 25"},
-  {n:"Guía: cómo funciona nuestro servicio de contabilidad", u:"PDF, edición 2026, entregado al cliente", c:"Alcance, ciclo mensual, entregables con plazo, roles, canales y responsabilidades de cada parte"},
-  {n:"Guía: cómo ordenar tu documentación fiscal", u:"PDF, edición 2026, entregado al cliente", c:"Estructura de carpetas, nomenclatura, qué entrega el cliente y cuándo, marco normativo"},
-  {n:"Guía: cómo funciona nuestro servicio de nómina", u:"PDF, edición 2026, entregado al cliente", c:"Alcance, ciclo de cada periodo, glosario de nómina, roles y responsabilidades"},
-  {n:"Grupos de WhatsApp por cliente", u:"Sin ubicación formal", c:"Es el canal real de observaciones al cliente y probablemente de la línea de captura. Tiene rastro completo pero no acumula estado: no se puede ver qué sigue abierto", perdido:1}
-];
 
 /* ============================================================
    ESTADO Y PERSISTENCIA
@@ -1570,7 +1435,6 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 let ruta = {v:"tablero", id:null};
 
 function pintarRail(){
-  const sinResolver = CONFLICTOS.filter(c => !resuelto(c.id)).length;
   const vacias = CUENTAS.filter(c => estadoDe(c) !== "completa").length;
   const b = (v,id,txt,cta,alerta) =>
     `<button data-v="${v}" data-id="${id||""}" aria-current="${ruta.v===v && ruta.id===(id||null)}">
@@ -1580,7 +1444,6 @@ function pintarRail(){
     b("tablero",null,"Tablero de procesos") +
     b("cambios",null,"Modificaciones", INICIAL ? undefined : CAMBIOS_MES.length, CAMBIOS_MES.length>0) +
     `<h4>Antes de publicar</h4>` +
-    b("conflictos",null,"Contradicciones", sinResolver, sinResolver>0) +
     b("faltantes",null,"Reglas por escribir", FALTANTES.length, true) +
     `<h4>Políticas</h4>` +
     b("formato",null,"Formato de CB") +
@@ -1589,8 +1452,7 @@ function pintarRail(){
     b("cuentas",null,"Políticas de registro", vacias+" ⌀") +
     b("proceso",null,"Detalle de las etapas") +
     b("comunicacion",null,"Reglas de comunicación") +
-    b("zoho",null,"Tablero de Zoho") +
-    b("ubicaciones",null,"Dónde vive cada cosa", UBICACIONES.length);
+    b("zoho",null,"Tablero de Zoho");
 }
 
 // vistas donde el id del buscador es un ancla dentro de la página, no una ficha
@@ -1629,9 +1491,8 @@ document.getElementById("rail").addEventListener("click", e=>{
 function pintar(){
   const v = document.getElementById("vista");
   const f = {
-    tablero:vTablero, cambios:vCambios, formato:vFormato, comunicacion:vComunicacion, zoho:vZoho, conflictos:vConflictos, faltantes:vFaltantes,
+    tablero:vTablero, cambios:vCambios, formato:vFormato, comunicacion:vComunicacion, zoho:vZoho, faltantes:vFaltantes,
     glosario:vGlosario, cuentas:vCuentas, proceso:vProceso,
-    ubicaciones:vUbicaciones,
     revision:vRevision
   }[ruta.v];
   v.innerHTML = f ? f() : "";
@@ -1788,7 +1649,6 @@ const FASES = {
   C:{n:"Autorizar y declarar", d:"El acto de comprometer la firma", q:"Jefe de contabilidad"}
 };
 
-function resuelto(id){ const c = CONFLICTOS.find(x=>x.id===id); return decisiones[id] || (c && c.cerrado) || null; }
 /* El estado de una cuenta se calcula a partir de sus tres apartados, no se
    declara a mano: así la etiqueta nunca puede mentir y se actualiza sola. */
 /* Lo que la tabla muestra de cada cuenta: el resumen si existe, si no la primera
@@ -1816,7 +1676,6 @@ const ETIQUETA = {
   "sin criterio":["m-alto","sin criterio","Los tres apartados están en blanco."]
 };
 
-function conflictosDe(n){ return CONFLICTOS.filter(c => c.et && c.et.includes(n) && !resuelto(c.id)); }
 
 const PRINCIPIO = {
   mod:"2026-09-28",
@@ -1836,9 +1695,6 @@ const PRINCIPIO = {
 
 function vTablero(){
   const hoy = new Date("2026-09-14");
-  const sinResolver = CONFLICTOS.filter(c=>!resuelto(c.id)).length;
-  const incompletas = ETAPAS.filter(e=>!e.ok).length;
-  const manuales = PUNTOS.filter(p=>!p.a).length;
 
   let h = `
   <section id="lema" class="lema${esReciente(PRINCIPIO.mod)?" reciente":""}">
@@ -1851,22 +1707,10 @@ function vTablero(){
   <h1>Tablero de procesos</h1>
   <p class="entrada">Las once etapas del cierre, con el estado de Zoho que les corresponde. Cada tarjeta abre sus subprocesos, con el problema conocido y la solución que ya se encontró.</p>
 
-  <div class="objetivos">
-    <div class="obj"><b>día 15</b><span>Cierres e impuestos presentados y enviados al cliente</span></div>
-    <div class="obj"><b>día 25</b><span>Cortes depurados u observaciones enviadas</span></div>
-    <div class="obj${sinResolver?' alerta':''}"><b>${sinResolver}</b><span>contradicciones sin resolver</span></div>
-    <div class="obj${incompletas?' alerta':''}"><b>${incompletas} de 11</b><span>etapas sin decir con claridad cuándo se puede pasar</span></div>
-    <div class="obj${manuales?' alerta':''}"><b>${manuales} de 36</b><span>puntos de auditoría que se responden a mano</span></div>
-  </div>
-
   ${(!INICIAL && CAMBIOS_MES.length)?`<div class="aviso-nuevo"><b>${CAMBIOS_MES.length} cambios este mes</b>
     <span>Lo modificado en ${MESES[+HOY.slice(5,7)-1]} viene marcado con este color en toda la app.</span>
     <button data-ir3="cambios">Ver qué cambió</button></div>`:""}
-
-  <div class="entrada-caso">
-    <b>¿Te cayó un caso?</b>
-    <span>Cuatro preguntas y sales con el asiento, el numeral que lo respalda y lo que va al escrito de pendientes.</span>
-  </div>`;
+`;
 
   ["A","B","C"].forEach(k=>{
     const es = ETAPAS.filter(e=>e.fase===k);
@@ -1877,7 +1721,6 @@ function vTablero(){
       <div class="rejilla">`;
     es.forEach(e=>{
       const meses = Math.round((hoy - new Date(e.mod || e.f))/2629800000);
-      const cf = conflictosDe(e.n);
       h += `<button class="et${e.subs.length?"":" et-vacia"}" data-etapa2="${e.n}">
         <span class="et-num">${e.n}</span>
         <span class="et-zoho">${esc(e.z)}</span>
@@ -1889,7 +1732,6 @@ function vTablero(){
           <span class="chip${meses>18?" vieja":""}">${meses} meses</span>
         </div>
         ${CAMBIOS_MES.some(c=>c.v==="proceso"&&c.id===String(e.n))?`<div class="et-nuevo">modificada este mes</div>`:""}
-        ${cf.length?`<div class="et-alerta">${cf.length} contradicción${cf.length===1?"":"es"} sin resolver</div>`:""}
       </button>`;
     });
     h += `</div></div>`;
@@ -1924,8 +1766,6 @@ function vZoho(){
       <td style="color:var(--soft)">${t.q?esc(t.q):'<span style="color:var(--faint)">—</span>'}</td></tr>`;
   });
   h += `</table>`;
-
-  setTimeout(()=> document.querySelectorAll("[data-conf3]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf3)),0);
   return h;
 }
 
@@ -1963,73 +1803,6 @@ function vComunicacion(){
   </div>
   ${COM_CLIENTE.porque.map(x=>`<div class="ficha"><div class="ficha-tope"><h3>${esc(x.t)}</h3></div>
     <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(x.d)}</p></div>`).join("")}`;
-}
-
-/* ---------- conflictos ---------- */
-function vConflictos(){
-  let h = `<h1>Contradicciones abiertas</h1>
-  <p class="entrada">Cada una son dos reglas vigentes que describen el mismo hecho y mandan cosas distintas. Mientras no se cierren, enlazarlas solo pone el conflicto a un clic. Resolver aquí es requisito para publicar, no consecuencia.</p>`;
-
-  CONFLICTOS.forEach(c=>{
-    const d = resuelto(c.id);
-    const abierto = ruta.id === c.id;
-    h += `<div class="ficha" id="${c.id}"${abierto?' style="border-color:var(--guinda);border-width:2px"':''}>
-      <div class="ficha-tope">
-        <h3>${esc(c.t)}</h3>
-        <span class="marbete ${d?'m-ok':'m-alto'}">${d?"resuelta":esc(c.grav)}</span>
-      </div>
-      <div class="versus">
-        <div><h5>${esc(c.a.f)}</h5><p>${esc(c.a.x)}</p></div>
-        <div><h5>${esc(c.b.f)}</h5><p>${esc(c.b.x)}</p></div>
-      </div>
-      <p style="font-size:14px;color:var(--soft);margin:10px 0 0">${esc(c.porq)}</p>
-      <h3>Qué hay que decidir</h3>
-      <p style="font-size:14px;margin:0">${esc(c.pide)}</p>`;
-
-    if(d){
-      h += `<div class="acciones" style="background:var(--ok-wash);border-color:#BFD6C6;margin-top:14px">
-        <h5 style="color:var(--ok)">Resuelta el ${esc(d.fecha)}${d.quien?" · "+esc(d.quien):""}</h5>
-        <ul><li>${esc(d.txt)}</li></ul>
-        ${c.cerrado?"":`<div class="fila-btn"><button class="btn-hueco btn" data-borrar="${c.id}">Reabrir</button></div>`}</div>`;
-    }else{
-      h += `<div style="margin-top:14px">
-        <textarea id="t-${c.id}" rows="2" placeholder="Escribe aquí cuál regla queda vigente y cuál se deroga…"
-          style="width:100%;max-width:660px;font-family:var(--sans);font-size:14px;padding:9px 11px;border:1px solid var(--rule-hard);border-radius:2px;background:var(--card);color:var(--ink)">${c.sug?esc(c.sug):""}</textarea>
-        <div class="fila-btn"><button class="btn" data-resolver="${c.id}">Registrar decisión</button>
-        ${c.ver?`<button class="btn btn-hueco" data-ev="${c.ver}">Ver la evidencia</button>`:""}</div>
-        ${c.sug?`<p style="font-size:12.5px;color:var(--faint);margin:8px 0 0">Redacción sugerida a partir de lo que HTTax puede evaluar. Edítala antes de registrar.</p>`:""}</div>`;
-    }
-    h += `</div>`;
-  });
-
-  h += `<div class="fila-btn" style="margin-top:20px"><button class="btn btn-hueco" id="exportar">Copiar todas las decisiones</button></div>
-  <p class="nota">Las decisiones se guardan en este navegador. El botón de copiar las saca en texto plano para pegarlas en el documento maestro, que es donde tienen que vivir de verdad.</p>`;
-
-  setTimeout(()=>{
-    document.querySelectorAll("[data-resolver]").forEach(b=>{
-      b.onclick = async ()=>{
-        const id = b.dataset.resolver;
-        const txt = document.getElementById("t-"+id).value.trim();
-        if(!txt) return document.getElementById("t-"+id).focus();
-        decisiones[id] = {txt, fecha: new Date().toLocaleDateString("es-MX",{day:"numeric",month:"long",year:"numeric"})};
-        await guardarDecisiones(); pintarRail(); pintar();
-      };
-    });
-    document.querySelectorAll("[data-borrar]").forEach(b=>{
-      b.onclick = async ()=>{ delete decisiones[b.dataset.borrar]; await guardarDecisiones(); pintarRail(); pintar(); };
-    });
-    document.querySelectorAll("[data-ev]").forEach(b=> b.onclick = ()=> ir(b.dataset.ev));
-    const ex = document.getElementById("exportar");
-    if(ex) ex.onclick = ()=>{
-      const t = CONFLICTOS.map(c=>{
-        const d = resuelto(c.id);
-        return `${c.t}\n  ${d ? d.txt + "  [" + d.fecha + "]" : "SIN RESOLVER"}`;
-      }).join("\n\n");
-      navigator.clipboard.writeText(t).then(()=>{ ex.textContent = "Copiado"; setTimeout(()=>ex.textContent="Copiar todas las decisiones",1600); });
-    };
-    if(ruta.id) document.getElementById(ruta.id)?.scrollIntoView({block:"center"});
-  },0);
-  return h;
 }
 
 /* ---------- faltantes ---------- */
@@ -2125,7 +1898,6 @@ function vCuenta(c){
         // el rastro de modificaciones solo aparece cuando la app ya se publicó
         if(r.f && !(INICIAL && /\d{4}/.test(r.f))) pie.push(esc(r.f));
         if(r.nota) pie.push(`<span style="color:var(--soft)">${esc(r.nota)}</span>`);
-        if(r.conflicto && !resuelto(r.conflicto)) pie.push(`<button data-conf2="${r.conflicto}" style="background:none;border:0;padding:0;color:var(--guinda);text-decoration:underline;font-size:12px">en disputa</button>`);
         if(pie.length) h += `<p class="cita-pie">${pie.join(" · ")}</p>`;
       });
     }else{
@@ -2160,7 +1932,6 @@ function vCuenta(c){
   setTimeout(()=>{
     document.querySelector("[data-atras]").onclick = ()=> ir("cuentas");
     document.querySelectorAll("[data-v2]").forEach(b=> b.onclick = ()=> ir(b.dataset.v2));
-    document.querySelectorAll("[data-conf2]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf2));
     document.querySelectorAll("[data-ir4]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir4));
   },0);
   return h;
@@ -2189,12 +1960,11 @@ function vProceso(){
   CHECKLIST.forEach((c,i)=>{
     h += `<tr><td class="sig" style="color:var(--faint)">${i+1}</td><td>
       ${esc(c.t)}${c.nuevo?' <span class="marbete m-tibio">propuesto</span>':''}
-      ${c.nota?`<div style="margin-top:5px;font-size:13px;color:${c.choca?'var(--guinda)':'var(--soft)'}">${esc(c.nota)}${c.choca?` <button data-conf3="${c.choca}" style="background:none;border:0;padding:0;color:var(--guinda);text-decoration:underline;font-size:13px">ver contradicción</button>`:""}</div>`:""}
+      ${c.nota?`<div style="margin-top:5px;font-size:13px;color:var(--soft)">${esc(c.nota)}</div>`:""}
     </td></tr>`;
   });
   h += `</table>`;
   setTimeout(()=>{
-    document.querySelectorAll("[data-conf3]").forEach(b=> b.onclick = e=>{ e.stopPropagation(); ir("conflictos", b.dataset.conf3); });
     document.querySelectorAll("[data-etapa]").forEach(t=> t.onclick = ()=> ir("proceso", t.dataset.etapa));
   },0);
   return h;
@@ -2215,14 +1985,6 @@ function vEtapa(e){
     ${e.salida?`<ul class="lista" style="margin-top:12px;font-size:14.5px">${e.salida.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
     </div>`;
 
-  const cf = conflictosDe(e.n);
-  if(cf.length){
-    h += `<h2>Contradicciones que tocan esta etapa</h2>`;
-    cf.forEach(c=> h += `<div class="ficha" style="border-color:var(--guinda)">
-      <div class="ficha-tope"><h3>${esc(c.t)}</h3><span class="marbete m-alto">${esc(c.grav)}</span></div>
-      <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">${esc(c.pide)}</p>
-      <div class="fila-btn"><button class="btn-hueco btn" data-conf6="${c.id}">Abrir</button></div></div>`);
-  }
 
   if(!e.subs.length){
     h += `<div class="vacio-caja"><h3>Sin subprocesos escritos</h3>
@@ -2238,7 +2000,6 @@ function vEtapa(e){
         if(s.sol) h += `<h5 style="color:var(--ok)">Solución</h5><p style="margin:0;font-size:14px">${esc(s.sol)}</p>`;
         h += `</div>`;
       }
-      if(s.ch && !resuelto(s.ch)) h += `<div class="fila-btn"><button class="btn-hueco btn" data-conf6="${s.ch}">Este paso está en disputa</button></div>`;
       h += `</div>`;
     });
     h += `</div>`;
@@ -2248,27 +2009,12 @@ function vEtapa(e){
   setTimeout(()=>{
     document.querySelector("[data-atras2]").onclick = ()=> ir("tablero");
     document.querySelectorAll("[data-ir5]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir5));
-    document.querySelectorAll("[data-conf6]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf6));
     document.querySelectorAll("[data-ir2]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir2));
   },0);
   return h;
 }
 
 /* ---------- empresas ---------- */
-/* ---------- ubicaciones ---------- */
-function vUbicaciones(){
-  let h = `<h1>Dónde vive cada cosa</h1>
-  <p class="entrada">Dieciocho ubicaciones. Este índice no las junta: las nombra. Es lo que hoy no existe y lo que produjo tanto el caso de ANNB como el de la ficha desactualizada.</p>
-  <table class="datos"><tr><th style="width:250px">Documento</th><th style="width:300px">Dónde está</th><th>Qué contiene</th></tr>`;
-  UBICACIONES.forEach((u,i)=>{
-    h += `<tr><td style="font-weight:500">${esc(u.n)}</td>
-      <td style="font-size:13px;color:${u.perdido?'var(--guinda)':'var(--soft)'};word-break:break-word">${esc(u.u)}</td>
-      <td style="font-size:13.5px;color:var(--faint)">${esc(u.c)}</td></tr>`;
-  });
-  h += `</table><p class="nota">Tres renglones en rojo no tienen ruta registrada. Mientras siga así, no se puede saber si están vigentes ni quién los mantiene.</p>`;
-  return h;
-}
-
 /* ---------- revisión de cierre ---------- */
 function vRevision(){
   return `<h1>Revisión de cierre</h1>
@@ -2621,7 +2367,6 @@ CUENTAS.forEach(c => {
   c.revision.forEach(r => idx("Revisión · "+c.n, r.f || c.n, r.t, "cuentas", c.id, r.sub, r.nota, r.cierre));
 });
 
-CONFLICTOS.forEach(c => idx("Contradicción", c.t, c.pide, "conflictos", c.id, c.a, c.b, c.porq, c.d));
 FALTANTES.forEach(f => idx("Regla por escribir", f.r, f.c, "faltantes"));
 
 ETAPAS.forEach(e => {
@@ -2639,7 +2384,6 @@ FORMATO_CB.secciones.forEach(sec=>{
 EJEMPLOS_CB.forEach(e => idx("Ejemplo de conciliación", e.t, e.d, "formato", "f-"+e.sec, e.r, e.asiento));
 
 CHECKLIST.forEach(c => idx("Lista de comprobación", c.t, c.nota || c.ht || "", "proceso", null, c.ht, c.nota));
-UBICACIONES.forEach(u => idx("Dónde vive", u.n, u.c || "", "ubicaciones", null, u.u));
 
 REGLAS_GENERALES.reglas.forEach(r=> idx("Reglas generales de registro", REGLAS_GENERALES.t, plano(r.h), "cuentas", null, REGLAS_GENERALES.notaH));
 idx("Portada", PRINCIPIO.t, PRINCIPIO.d, "tablero", null, PRINCIPIO.pasos, PRINCIPIO.forma);
