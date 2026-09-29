@@ -18,8 +18,8 @@
   --guinda-wash:#F3E4E7;
   --ok:#2D6A4C;
   --ok-wash:#E2EDE5;
-  --nuevo:#175C6B;
-  --nuevo-wash:#DDEAED;
+  --nuevo:#0A6BFF;
+  --nuevo-wash:#E3EDFF;
   --warn:#8A6410;
   --warn-wash:#F3EBD8;
   --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -118,6 +118,22 @@ p{max-width:70ch}
 }
 .cita-pie{font-size:12px;color:var(--faint);padding-left:16px;margin-bottom:14px}
 .cita-guia{margin-bottom:0}
+.traslado{
+  font-size:13.5px;color:var(--soft);margin:8px 0 0;
+  padding-left:11px;border-left:2px solid var(--rule-hard);
+}
+.traslado b{color:var(--ink);font-weight:600}
+.quitado{
+  margin:10px 0 0;padding:10px 12px;background:var(--wash);
+  border-left:2px solid var(--faint);
+}
+.quitado b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.quitado ul{margin:0;padding-left:18px}
+.quitado li{
+  font-family:var(--serif);font-size:14.5px;line-height:1.5;
+  color:var(--soft);text-decoration:line-through;text-decoration-color:var(--faint);
+  margin-bottom:5px;
+}
 ul.condiciones{
   margin:0 0 4px;padding:0 0 0 16px;list-style:none;
   border-left:2px solid var(--rule-hard);max-width:70ch;
@@ -139,69 +155,6 @@ ul.condiciones li::before{
 
 ul.lista{margin:0;padding-left:18px;max-width:70ch}
 ul.lista li{margin-bottom:6px}
-
-/* ---------- consulta / árbol ---------- */
-.casos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:30px}
-.caso{
-  background:var(--card);border:1px solid var(--rule-hard);padding:15px 16px;text-align:left;
-  border-radius:2px;line-height:1.35;
-}
-.caso:hover{border-color:var(--guinda);background:#fff}
-.caso b{display:block;font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:4px}
-.caso i{font-style:normal;font-size:12.5px;color:var(--faint)}
-
-.hilo{border-left:2px solid var(--rule-hard);padding-left:20px;margin-left:4px}
-.paso{margin-bottom:20px;position:relative}
-.paso::before{
-  content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;
-  background:var(--paper);border:2px solid var(--rule-hard);border-radius:50%;
-}
-.paso.viva::before{background:var(--guinda);border-color:var(--guinda)}
-.pregunta{font-family:var(--serif);font-size:19px;font-weight:500;margin:0 0 10px;line-height:1.3}
-.opciones{display:flex;flex-wrap:wrap;gap:8px}
-.opciones button{
-  background:var(--card);border:1px solid var(--rule-hard);padding:7px 14px;border-radius:2px;font-size:14px;
-}
-.opciones button:hover{border-color:var(--guinda);color:var(--guinda)}
-.elegida{font-size:14px;color:var(--soft)}
-.elegida b{color:var(--ink);font-weight:600}
-
-.poliza{background:var(--card);border:1px solid var(--ink);padding:0;margin:6px 0 14px;max-width:640px}
-.poliza-tope{
-  display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  padding:10px 16px;border-bottom:1px solid var(--ink);background:var(--ink);color:var(--paper);
-}
-.poliza-tope b{font-family:var(--serif);font-size:15px;font-weight:600}
-.poliza-tope span{font-size:11.5px;opacity:.75}
-table.asiento{width:100%;border-collapse:collapse;font-size:14px}
-table.asiento th{
-  text-align:right;font-size:11px;font-weight:600;color:var(--faint);
-  padding:7px 16px 5px;border-bottom:1px solid var(--rule);
-}
-table.asiento th:first-child{text-align:left}
-table.asiento td{padding:7px 16px;border-bottom:1px solid var(--rule);text-align:right}
-table.asiento td:first-child{text-align:left;font-family:var(--serif);font-size:15px}
-table.asiento tr:last-child td{border-bottom:0}
-table.asiento .sangria{padding-left:38px}
-.narra{padding:12px 16px;font-size:13.5px;color:var(--soft);border-top:1px solid var(--rule);background:var(--paper)}
-
-.acciones{background:var(--warn-wash);border:1px solid #E0D0A8;padding:14px 16px;max-width:640px;margin-bottom:14px}
-.acciones h5{margin:0 0 8px;font-size:12px;font-weight:600;color:var(--warn)}
-.acciones ul{margin:0;padding-left:18px;font-size:14px}
-.acciones li{margin-bottom:4px}
-
-.frena{background:var(--guinda-wash);border:1px solid #D9B3BD;padding:16px;max-width:640px;margin-bottom:14px}
-.frena h5{margin:0 0 6px;font-size:15px;font-family:var(--serif);font-weight:600;color:var(--guinda)}
-.frena p{margin:0 0 8px;font-size:14px}
-
-.btn{
-  background:var(--ink);color:var(--paper);border:1px solid var(--ink);
-  padding:8px 16px;border-radius:2px;font-size:14px;
-}
-.btn:hover{background:var(--guinda);border-color:var(--guinda)}
-.btn-hueco{background:none;color:var(--ink);border:1px solid var(--rule-hard)}
-.btn-hueco:hover{background:var(--card);color:var(--guinda);border-color:var(--guinda)}
-.fila-btn{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 
 /* ---------- tablas ---------- */
 table.datos{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--rule)}
@@ -449,7 +402,7 @@ body[data-inicial] .cambio.esteMes{border-left-color:var(--rule-hard)}
 <div class="marco">
   <header class="tope">
     <div class="marca">Políticas <span>·</span> despacho</div>
-    <div class="sello" id="sello">Borrador 9.5 — 28 sep 2026 · con HTTax, manual y formato de CB</div>
+    <div class="sello" id="sello">Borrador 11.7 — 28 sep 2026 · con HTTax, manual y formato de CB</div>
     <button class="interruptor" id="swEnlaces" aria-pressed="true"><i></i>Enlaces en el texto</button>
     <div class="buscador">
       <input id="q" type="search" placeholder="Buscar regla, cuenta, sigla…" autocomplete="off" aria-label="Buscar">
@@ -490,6 +443,9 @@ const SIGLAS = [
    e:"firme",
    ev:"Ejemplo en clientes: mediante la integración se puede saber qué facturas nos debe un cliente, indistintamente de cuántos abonos haya hecho a cada factura. La suma de todas las facturas debe ser igual al saldo final de esa cuenta de registro en la balanza de comprobación.",
    u:["Reglas generales de registro","Clientes","Proveedores","Etapa 8"]},
+  {s:"Guía de documentación", mod:"2026-09-28",
+   d:"Es la guía de documentación fiscal en PDF que sirve para enviárselo a los clientes y puedan tener una mejor referencia de cómo deben ordenar sus transferencias y facturas.",
+   e:"firme", u:["Caja","Reglas de comunicación"]},
   {s:"Escrito de pendientes", mod:"2026-09-14",
    d:"Es un archivo en Word que se sugiere llevar durante todo el proceso de cierre. Es una memoria virtual, temporal o definitiva, en la que se anota cualquier observación que se detecte desde la captura y hasta el cierre. No tiene un formato en específico. Su fin es servir como evidencia para hacerle recomendaciones u observaciones al cliente, y que no todo dependa de la memoria del contador.",
    e:"firme", u:["Etapa 6","Formato de CB","Bancos","Clientes"]},
@@ -553,52 +509,8 @@ const FORMAS_PAGO = [
   {c:"99", n:"Por definir", t:"La única forma admisible en un CFDI PPD emitido. Cualquier otra se avisa en el escrito de pendientes."}
 ];
 
-const CAPAS = {
-  A:{n:"¿Está completo el universo?", d:"Todo UUID del SAT tiene póliza y toda póliza tiene UUID vigente, y ningún comprobante trae una bandera fiscal sin resolver."},
-  B:{n:"¿Amarran los ingresos?", d:"El concentrado, la balanza y el reporte de rubro 4 dicen lo mismo dentro de la tolerancia escrita, y las cuentas de diferencia de registro están en el umbral."},
-  C:{n:"¿Amarra el efectivo?", d:"Todas las cuentas y tarjetas del registro de la empresa están conciliadas con diferencia cero, el flujo de efectivo cierra, y no hay movimientos en la cuenta de cuadre."},
-  D:{n:"¿Amarran los impuestos?", d:"Las pruebas de IVA, la DIOT y las bases de pagos provisionales concilian contra contabilidad, y las retenciones están en la cuenta que les toca según se hayan pagado o no."},
-  E:{n:"¿Amarran nómina y activos?", d:"El visor de nómina cuadra contra contabilidad y la integración de activos cuadra contra el balance."}
-};
 
-const PUNTOS = [
-  {n:1, c:"B", t:"¿El total del concentrado de ingresos coincide con el total de rubro 4 de la balanza?", a:1, tol:"exacto a centavos", p:"Rubro 4, numeral 5: los ingresos no se netean."},
-  {n:2, c:"B", t:"¿El total del concentrado de ingresos coincide con el total del reporte de rubro 4?", a:1, tol:"±$1.00", p:"Rubro 4, a y b."},
-  {n:3, c:"B", t:"Revisar diferencia de registro de rubro 4", a:1, tol:"alerta > $10.00", p:"Criterio: solo deben vivir centavos menores a $0.99. El umbral de $10 es alerta, porque HTTax no puede leer el auxiliar."},
-  {n:4, c:"B", t:"Revisar la cuenta de diferencia de registro de rubro 6", a:1, tol:"alerta > $10.00", p:"Mismo criterio que el punto 3."},
-  {n:5, c:"C", t:"¿Existen recibidos con forma de pago efectivo mayores a dos mil pesos?", a:1, p:"Caja y Gastos generales: cargo a no deducibles, subcuenta sin requisitos fiscales."},
-  {n:6, c:"A", t:"¿Coinciden los UUID recibidos tipo I y tipo E con los relacionados en el VDD?", a:1},
-  {n:7, c:"A", t:"¿Existen UUID tipo I y tipo E sin palomita en el VDD?", a:1, z:10},
-  {n:8, c:"A", t:"¿Coinciden los UUID recibidos tipo P con los relacionados en el VDD?", a:1},
-  {n:9, c:"A", t:"¿Existen UUID tipo P sin palomita en el VDD?", a:1, z:10},
-  {n:10, c:"A", t:"¿Existen recibidos cancelados y con palomita en el VDD?", a:1, mod:"2026-09-14", p:"Hay que revisar esa póliza: puede estar dando efectos fiscales —acumulación, deducción, acreditamiento o traslado— a un comprobante ya cancelado. Si en efecto fue cancelado, se ponen en cero los cargos y abonos de la póliza o se elimina la póliza."},
-  {n:11, c:"A", t:"¿Existen recibidos con uso de CFDI de inversiones, serie I?", a:1, mod:"2026-09-14", p:"Hay que verificar que la póliza se haya registrado con cargo al activo fijo y no contra cuentas de rubro 5 o rubro 6."},
-  {n:12, c:"A", t:"¿Existen recibidos con uso de CFDI de deducciones personales, serie D?", a:1, p:"Proveedores y Gastos generales: solo 16 conceptos son deducción personal."},
-  {n:13, c:"A", t:"¿Existen recibidos con uso de CFDI sin efectos fiscales?", a:1, mod:"2026-09-14", p:"Se le pide al proveedor que reexpida el comprobante para que guarde en su base de datos el uso correcto del CFDI.", nota:"El uso del CFDI no es hoy requisito de deducción, pero conviene que se emita con el uso correcto."},
-  {n:14, c:"C", t:"¿La CB tiene ABNN?", a:1, tol:"diferencia cero", nota:"Los puntos 14, 15 y 16 están cableados a la misma función. HTTax responde idéntico a los tres y no distingue una partida de otra."},
-  {n:15, c:"C", t:"¿La CB tiene ANNB?", a:1, tol:"diferencia cero", nota:"La regla prohíbe cualquier ANNB, pero este punto solo comprueba que el saldo cuadre. Una CB cuadrada puede tener partidas abiertas, así que la regla se verifica a ojo."},
-  {n:16, c:"C", t:"¿La CB tiene CBNN?", a:1, tol:"diferencia cero", nota:"Las cuatro partidas se piden en el módulo de conciliación de HTTax. Como punto de auditoría solo aparecen tres: CNNB no tiene el suyo.", mod:"2026-09-14"},
-  {n:17, c:"C", t:"¿La balanza no tiene movimientos en cuenta de cuadre?", a:1, p:"Caja: no usar la cuenta como cuenta basura para tapar diferencias."},
-  {n:18, c:"D", t:"¿Cuadra la integración de ISR a favor con la balanza?", a:1, p:"Impuestos a favor: basta registrar bien cada declaración presentada."},
-  {n:19, c:"D", t:"¿Cuadra la integración de IVA con la balanza?", a:1, z:3},
-  {n:20, c:"D", t:"¿Cuadra la prueba de IVA trasladado?", a:0, p:"Escrita el 14 de septiembre de 2026: la cuenta solo admite abonos por el IVA cobrado, el único cargo es el del acreditamiento, y al final del mes debe quedar en cero.", nota:"Ya tiene regla, así que ya se puede automatizar. Bajaría de cinco a cuatro los puntos manuales."},
-  {n:21, c:"D", t:"¿Cuadra la prueba de IVA acreditable?", a:1, z:2, mod:"2026-09-14", p:"Se suman los subtotales de las facturas efectivamente pagadas agrupados por el juego de cuentas contables afectas al 16%, se multiplican por la tasa, y el resultado debe igualar el cargo a IVA acreditable.", nota:"Al hacerse con cuentas y no con un concentrado de facturas, este punto también verifica que los cargos a resultados se hicieron a las cuentas correctas. Si no cuadra, puede ser el IVA o puede ser la clasificación."},
-  {n:22, c:"D", t:"¿Se acreditó la retención de IVA pagada en el mes?", a:0, z:7, falta:"IVA retenido tiene los apartados de registro y de revisión en blanco. HTTax hasta trae el asiento en el título del punto: cargar IVA acreditable con abono a IVA por acreditar."},
-  {n:23, c:"D", t:"¿Se mandó a IVA por acreditar la retención no pagada en el mes?", a:0, falta:"Mismo rubro vacío. El catálogo de HTTax ya tiene la cuenta: IVA por Acreditar por Retenciones No Pagadas."},
-  {n:24, crucial:1, c:"C", t:"¿Flujo de efectivo igual a cero?", a:1, tol:"±$0.01"},
-  {n:25, c:"D", t:"¿Pusieron valor de actos o actividades pagados de DIOT?", a:1, mod:"2026-09-14", p:"El valor de actos o actividades es la base de la contraprestación sobre la que se aplica la tasa, o sobre la que se exenta. En la práctica, el subtotal de la factura. En la DIOT se declaran los pagados, no los devengados."},
-  {n:26, c:"D", t:"¿Cuadra el IVA de la prueba de la DIOT con contabilidad?", a:1, z:3, mod:"2026-09-14", p:"Misma lógica que la prueba de IVA: la sumatoria de bases efectivamente pagadas con su tasa, comparada contra el IVA de la contabilidad."},
-  {n:27, c:"D", t:"¿Coincide la retención de IVA provisión con el valor de la retención de la DIOT?", a:0, falta:"La política solo dice que la cuenta se divide en IVA retenido e IVA retenido provisión, para separar PUE de PPD. Nada más."},
-  {n:28, crucial:1, c:"D", t:"¿Concilian las bases de IVA y de pagos provisionales?", a:1},
-  {n:29, c:"E", t:"¿Se llenó el visor de nómina mensual?", a:1, falta:"No hay rubro de nómina en las políticas."},
-  {n:30, crucial:1, c:"E", t:"¿Cuadra lo retenido de ISR por salarios del visor contra contabilidad?", a:1, tol:"±$0.01", p:"ISR retenido acreditable: subcuenta POR SALARIOS."},
-  {n:31, c:"E", t:"¿Cuadra la integración de activos con el balance?", a:0, falta:"Activos no circulantes es un rubro completo sin una sola regla escrita."},
-  {n:32, crucial:1, c:"D", t:"¿Cuadra la conciliación contable fiscal?", a:1},
-  {n:33, c:"A", t:"¿Existen cancelaciones pero no UUID relacionados?", a:1},
-  {n:34, c:"A", t:"¿Existen UUID con código postal del emisor diferente al de su constancia?", a:1, mod:"2026-09-14", p:"Significa que un CFDI fue emitido o recibido con código postal distinto al del contribuyente que se está revisando.", falta:"Falta escribir qué se hace cuando enciende: si se pide refacturar, si se avisa al cliente, o si solo se deja observado."},
-  {n:35, c:"A", t:"¿Existen UUID con régimen fiscal recibido diferente al del receptor?", a:1, mod:"2026-09-14", p:"Significa que un CFDI fue emitido o recibido con régimen fiscal distinto al del contribuyente que se está revisando.", falta:"Mismo caso que el punto 34: falta la instrucción."},
-  {n:36, c:"A", t:"¿Existen RFC de proveedores reportados como EFOS?", a:1, mod:"2026-09-14", p:"Hay que revisar en qué lista negra se encuentra el proveedor. No se deben dar efectos fiscales si se está ante un caso del artículo 69-B o del 49-Bis del CFF.", nota:"Son dos mecanismos distintos. El 69-B lleva un proceso largo de publicación en listas. El 49-Bis, incorporado por decreto del 7 de noviembre de 2025, es una visita domiciliaria exprés que se resuelve en un máximo de 24 días hábiles y actúa directo sobre la operatividad del emisor. Para el receptor que ya dio efectos fiscales, el 49-Bis abre un plazo de 30 días desde la publicación para revertirlos mediante declaración complementaria. Por eso este punto se revisa cada mes contra la publicación y no solo al capturar: con cadencia mensual, una publicación de principios de mes puede vencer antes del siguiente cierre."}
-];
+const PUNTOS = [];
 
 
 
@@ -929,6 +841,10 @@ const CUENTAS = [
   {
     id:"caja", n:"Caja", estado:"piloto",
     resumen:"Cuenta en la que se registran exclusivamente entradas y salidas de dinero, indistintamente del motivo que origine la entrada o la salida del efectivo, tenga comprobante fiscal o no.",
+    generales:[
+      {t:"Un depósito sin explicación se presume ingreso y un retiro sin comprobante no es deducible. La guía le pide expresamente que no tenga reparo en decir que un movimiento no tendrá respaldo: saberlo desde el principio permite darle el tratamiento correcto. Lo que retrasa la entrega es que el movimiento quede sin explicación y haya que preguntarle después. Es la contraparte, del lado del cliente, de la regla de que basta con que diga que no habrá comprobante.", mod:"2026-09-28"},
+      {t:"Cada depósito o retiro de sus cuentas bancarias debe estar respaldado por un comprobante fiscal, salvo que por su naturaleza no deba tenerlo. Todo lo demás de la guía de documentación existe para cumplir esa sola regla. No requieren comprobante: traspasos entre cuentas propias, capital tomado en préstamo, donaciones y alimentos entre cónyuges e hijos, y aportaciones de capital. Los préstamos y donaciones se respaldan con contrato notarial.", mod:"2026-09-28"}
+    ],
     registro:[
       {t:"Lo anterior es la esencia de la cuenta. Lo que sigue son casos concretos, no la definición: están escritos como lista para resolver las situaciones que se repiten.", f:"Reglas generales · 14 de septiembre de 2026", mod:"2026-09-14"},
       {t:"Se carga por cada CFDI emitido con forma de pago 01. Si el comprobante trae otra forma de pago, no se carga a caja."},
@@ -957,8 +873,7 @@ const CUENTAS = [
     ],
     subcuentas:"Las subcuentas pueden abrirse por sucursal, para saber cuánta venta en efectivo está pendiente de depositar en cada una; o por nombre de la persona responsable de los pagos en efectivo, siempre que el cliente haya notificado quién es.",
     riesgos:[],
-    etapas:["Etapa 4","Etapa 6","Etapa 8"],
-    arbol:"deposito"
+    etapas:["Etapa 4","Etapa 6","Etapa 8"]
   },
   {
     id:"bancos", n:"Bancos", estado:"parcial",
@@ -981,8 +896,7 @@ const CUENTAS = [
       {t:"El saldo se revisa mediante el proceso de conciliación bancaria, donde en términos generales la CB deberá quedar depurada o con las partidas en conciliación permitidas en dicho proceso.", f:"Revisión de saldo · 14 de septiembre de 2026", mod:"2026-09-14"}
     ],
     riesgos:[],
-    etapas:["Etapa 6","Etapa 8"],
-    arbol:"cb"
+    etapas:["Etapa 6","Etapa 8"]
   },
   {
     id:"inversiones", mod:"2026-09-14", n:"Inversiones", estado:"parcial",
@@ -1090,7 +1004,7 @@ const CUENTAS = [
        nota:"Los dos supuestos terminan igual. Y hecho ese registro ya no se le recuerda al cliente, conforme a las políticas de gastos por comprobar."},
       {t:"En consecuencia, el saldo solo debe contener erogaciones de los últimos dos meses. Cualquier partida más antigua indica que el seguimiento no ocurrió o que la reclasificación no se hizo.", f:"Revisión de saldo · 14 de septiembre de 2026", mod:"2026-09-14"}
     ],
-    riesgos:[], etapas:["Etapa 6","Etapa 7","Etapa 8"], arbol:"retiro"
+    riesgos:[], etapas:["Etapa 6","Etapa 7","Etapa 8"]
   },
   {
     id:"ivaacr", n:"IVA acreditable", estado:"escrita",
@@ -1315,297 +1229,6 @@ const CUENTAS = [
 
 ];
 
-const ARBOLES = {
-  cb:{
-    n:"Me quedó una partida en la conciliación",
-    sub:"Formato de CB · depuración por tipo de partida",
-    ini:"q1",
-    nodos:{
-      q1:{p:"¿Qué tipo de partida quedó abierta?", o:[
-        {t:"Un retiro del banco sin contabilizar (CBNN)", ir:"q_cbnn"},
-        {t:"Un abono nuestro que el banco no reconoce (ANNB)", ir:"q_annb"},
-        {t:"Un cargo nuestro que el banco no reconoce (CNNB)", ir:"r_cnnb"},
-        {t:"Un depósito del banco sin contabilizar (ABNN)", ir:"r_abnn"}
-      ]},
-      q_cbnn:{p:"¿De qué se trata el retiro?", o:[
-        {t:"Impuestos federales", ir:"r_impfed"},
-        {t:"Cuotas IMSS o Infonavit", ir:"r_imss"},
-        {t:"Impuesto estatal o sobre nómina", ir:"r_isn"},
-        {t:"Domiciliación de un crédito o tarjeta", ir:"r_domic"},
-        {t:"Otra cosa", ir:"q_cbnn2"}
-      ]},
-      q_cbnn2:{p:"¿Y qué más se sabe de ese retiro?", o:[
-        {t:"Es un cargo recurrente sin comprobante fiscal", ir:"r_recurrente"},
-        {t:"Es una comisión bancaria no facturada", ir:"r_comision"},
-        {t:"Es el pago de un PPD", ir:"q_ppd"},
-        {t:"No se sabe quién es el beneficiario", ir:"r_pend"},
-        {t:"Se sabe quién es, pero no hay comprobante al cierre", ir:"r_gxccb"}
-      ]},
-      q_ppd:{p:"¿El proveedor emitió el complemento de pago?", o:[
-        {t:"Sí, ya lo tenemos", ir:"r_compl"},
-        {t:"Se solicitó y no lo emite", ir:"r_sincompl"},
-        {t:"Todavía no se ha solicitado", ir:"r_solicitar"}
-      ]},
-      q_annb:{p:"¿El ANNB está amparado por una factura?", o:[
-        {t:"Sí, hay factura", ir:"r_annbfac"},
-        {t:"No, parece error de registro", ir:"r_annberr"}
-      ]},
-
-      r_impfed:{fin:1, t:"Se registra con las declaraciones del servidor",
-        base:"Formato de CB, depuración de CBNN, apartado I. Es uno de los casos que no ameritan comunicación con el cliente.",
-        acc:["Buscar en el servidor las declaraciones del mes anterior para hacer el registro."]},
-
-      r_imss:{fin:1, t:"El IMSS normalmente factura, el Infonavit no",
-        base:"Formato de CB, depuración de CBNN, apartado I. Tampoco amerita comunicación con el cliente.",
-        acc:["Si alguno no factura, pedir a Anadaley que solicite el comprobante.","Si no llega, registrar el CBNN con base en el SIPARE."]},
-
-      r_isn:{fin:1, t:"El gobierno del estado normalmente factura",
-        base:"El registro se hace con el comprobante. No amerita comunicación con el cliente.",
-        acc:["Si no factura, pedir a Anadaley que solicite el comprobante.","Si no llega el comprobante en el mes siguiente, registrar con base en la declaración."], mod:"2026-09-14"},
-
-      r_domic:{fin:1, t:"Se separa capital de intereses con el estado de cuenta",
-        asiento:[["Acreedores bancarios / institución e instrumento","D",""],["Gastos por intereses","D",""],["IVA por acreditar","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Los intereses se registran con base en el estado de cuenta del crédito y en el mismo asiento el cargo al capital. No amerita comunicación con el cliente: el beneficiario y el concepto se conocen.",
-        acc:["El CFDI del banco suele llegar hasta el mes siguiente. El IVA queda en IVA por acreditar y pasa a acreditable en el mes de emisión del comprobante.","Los intereses no se netean contra el capital.","Si los intereses se devengan y no se pagan, se abonan a acreedores bancarios, no a proveedores."], mod:"2026-09-14"},
-
-      r_recurrente:{fin:1, t:"Sin comprobante fiscal, y no se comenta con el cliente",
-        asiento:[["Gasto que corresponda / sin comprobante fiscal","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Es un cargo recurrente cuando el cliente ya explicó en al menos dos ocasiones que no tendrá comprobante. Por ejemplo, la domiciliación de CFE, Telmex o Netflix que por alguna situación no se solicita o no emiten comprobante.",
-        acc:["Por eso no requiere volver a preguntarle: la explicación ya se dio."], mod:"2026-09-14"},
-
-      r_comision:{fin:1, t:"Se deja en conciliación dos meses",
-        base:"Formato de CB, depuración de CBNN, apartado I, inciso D.",
-        acc:["Dejarla en la CB por si la facturan el mes siguiente.","Si pasan dos meses sin facturar, anotarlo en el escrito de pendientes para que el cliente lo revise con su banco.","Si después de dos meses no facturan los meses pasados, contabilizarlos a sin comprobante fiscal."]},
-
-      r_compl:{fin:1, t:"Se captura en el mes del CBNN",
-        asiento:[["Proveedores / clasificación por tasa","D",""],["IVA acreditable","D",""],["IVA por acreditar","","H"],["Bancos / cuenta de origen","","H"]],
-        base:"Regla del 14 de septiembre de 2026. Un CBNN se registra en el mes en que se descuenta del estado de cuenta, y el complemento se captura en ese mismo mes.",
-        acc:["Cargar el XML a Contpaq, a Tesorería y generar la póliza."], mod:"2026-09-14"},
-
-      r_solicitar:{fin:1, t:"Solicitarlo de manera estricta, antes de cualquier otra cosa",
-        base:"Regla del 14 de septiembre de 2026. Debe solicitarse al cliente de manera estricta que pida el complemento.",
-        acc:["Anotarlo en el escrito de pendientes.","Cuando se reciba, se captura en el mes del CBNN.","Si el proveedor no lo emite, hay un tratamiento propio: vuelve a este árbol cuando tengas la respuesta."], mod:"2026-09-14"},
-
-      r_sincompl:{fin:1, t:"Se registra por el pago efectivamente realizado",
-        asiento:[["Proveedores / clasificación por tasa","D",""],["IVA acreditable","D",""],["IVA por acreditar","","H"],["Bancos / cuenta de origen","","H"]],
-        base:"Regla del 14 de septiembre de 2026. La póliza se relaciona al UUID del PPD en lugar del complemento. El acreditamiento se sostiene en el artículo 5 de la LIVA: el PPD ampara la fracción I y la transferencia ampara la fracción II. La falta del complemento es un incumplimiento del emisor bajo el 29-A y no limita el acreditamiento del receptor.",
-        acc:["Dejar constancia en el escrito de pendientes de que el complemento se solicitó y no se emitió.","La póliza debe llevar la nota de que el registro se hizo por complemento faltante.","La vinculación se hace desde el VPS, como todas desde 2021. El VPS impide capturar dos veces el mismo XML, así que un UUID de PPD en la póliza del pago solo puede venir de este caso."], mod:"2026-09-14"},
-
-      r_gxccb:{fin:1, t:"Gastos por comprobar, por el importe total, en el mes del CBNN",
-        asiento:[["Gastos por comprobar / nombre del beneficiario","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Si al cierre el CBNN no obtuvo comprobante, se le da tratamiento conforme a las políticas de gastos por comprobar, por el importe total del CBNN. Ya no se permite dejarlo abierto en la conciliación esperando la factura del mes siguiente.",
-        acc:["Antes de registrar, verificar que no exista saldo en la subcuenta de proveedores del beneficiario. Si sí existe, lo que falta es el complemento y no el comprobante tipo ingreso.","Registrarlo en gastos por comprobar no es sinónimo de olvido: sigue siendo una partida no aclarada y se debe buscar su aclaración.","Si el cliente manifiesta que ese CBNN no tendrá comprobación, se reconoce de una vez en sin comprobante fiscal, sin esperar el plazo de dos meses.","Si el comprobante llega después del cierre, su fecha de emisión debe ser posterior al mes del CBNN.","El IVA de ese comprobante tardío se acredita en el mes de emisión del comprobante, siempre que no se exceda el plazo de dos meses de gastos por comprobar.","Pasado ese plazo la operación se debe registrar a no deducibles y el IVA a la cuenta IVA NO ACREDITABLE DEDUCIBLE."], mod:"2026-09-14"},
-
-      r_pend:{fin:1, t:"Primero buscar al titular de la cuenta, y si no, escrito de pendientes",
-        base:"Formato de CB, depuración de CBNN, apartado II: no se cuenta con el nombre del beneficiario ni con la factura por el importe.",
-        acc:["Si el estado de cuenta es de Bancomer, el texto BNET o BENET viene seguido de diez dígitos que son la cuenta destino. Buscando esa cuenta desde una banca electrónica de Bancomer se obtiene el titular. Hoy eso lo hace Anadaley, que es quien tiene acceso.","Si aun así no se identifica, anotarlo en el escrito de pendientes y mandar la observación al grupo del cliente.","Si sigue sin poder depurarse, escribir «no supe cómo depurarlo» en la partida y pedir apoyo por Zoho. Es la vía prevista, no una falla.","El apoyo debe resolverse antes del cierre: la partida no viaja abierta junto con la ficha."], mod:"2026-09-14"},
-
-      r_annbfac:{fin:1, t:"Primero revisar gastos por comprobar",
-        base:"Formato de CB, depuración de ANNB, apartado I.",
-        acc:["Revisar si no existe saldo en gastos por comprobar: la factura puede corresponder a un pago hecho el mes o los meses anteriores.","Preguntar al cliente si tiene conocimiento de por qué el proveedor emitió ese comprobante. Si la respuesta es no, solicitar la cancelación del comprobante; si no lo cancelan, no registrarlo. Si la respuesta es que corresponde a una factura no pagada, solicitar su reexpedición en PPD.","Un ANNB también puede venir de un error de registro: analizar la póliza antes de tomar cualquier otra decisión.","Si no es el caso, mover la póliza al mes siguiente y pedirle al cliente que aclare por qué le emitieron esa factura.","Recordar la regla de cierre: no se permiten ANNB, y todos deben quedar aclarados sin excepción."]},
-
-      r_annberr:{fin:1, t:"Revisar la póliza antes de decidir nada",
-        base:"Formato de CB, depuración de ANNB, apartado II: un ANNB puede venir de un error de registro.",
-        acc:["Analizar el registro de la póliza antes de tomar cualquier otra decisión."]},
-
-      r_cnnb:{fin:1, t:"Preguntar al cliente por qué se emitió la factura",
-        base:"Formato de CB, depuración de CNNB. Es un cobro facturado del que no entró depósito.",
-        acc:["Si la factura fue emitida por un cobro con tarjeta y ese cobro se refleja en el mes siguiente, no mencionar al cliente ninguna observación.","Preguntar al cliente por qué se emitió la factura con ese método y forma de pago, ya que no se recibió depósito. Si responde que el cliente no la pagó, debe cancelar la factura y reexpedirla en PPD.","Si la factura no debió emitirse, indicarle que la cancele con el motivo que corresponda.","Si más de una factura integra un solo depósito, agrupar las pólizas en una.","Al cerrar, solo se permite un CNNB si la factura se emitió en el mes y el abono bancario se refleja hasta el siguiente. El efecto fiscal ya se causó con la emisión; lo único que falta es que entre el dinero."]},
-
-      r_abnn:{fin:1, t:"Anticipo de clientes, con su IVA si corresponde",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Anticipo de clientes / tasa que corresponda","","H"],["IVA por causar, si aplica","","H"]],
-        base:"Todo depósito debe estar respaldado por una factura, salvo que no deba facturarse. El registro contra anticipo de clientes procede siempre que el cliente haya manifestado que el ABNN es un ingreso.",
-        acc:["Observar al cliente que el mes siguiente debe emitir la factura correspondiente, y anotarlo en el escrito de pendientes.","Revisar en el mes siguiente si existe complemento de pago con fecha de pago del mes de cierre.","Al cerrar no se permite ningún ABNN, sin excepción."]}
-    }
-  },
-
-  deposito:{
-    n:"Entró un depósito y no sé qué es",
-    sub:"Caja · Bancos · Acreedores diversos",
-    ini:"q1",
-    nodos:{
-      q1:{p:"¿Ya le preguntaste al cliente de dónde viene ese depósito?", o:[
-        {t:"Todavía no", ir:"r_preguntar"},
-        {t:"Sí, y dijo que no sabe", ir:"q_canal"},
-        {t:"Sí, dice que es un préstamo", ir:"q_prestamo"}
-      ]},
-      q_canal:{p:"¿Por dónde entró el dinero?", o:[
-        {t:"Efectivo en caja", ir:"q2"},
-        {t:"Transferencia, cheque o depósito en cuenta bancaria", ir:"r_acreedor"}
-      ]},
-      q_prestamo:{p:"¿Cómo lo notificó?", o:[
-        {t:"Por correo", ir:"r_prestamo"},
-        {t:"Por WhatsApp o por teléfono", ir:"r_sincorreo"}
-      ]},
-
-      r_preguntar:{fin:1, t:"Primero hay que preguntarle",
-        base:"Decidido el 14 de septiembre de 2026. Para darle cualquier tratamiento, primero debió preguntársele al cliente y él decir que no sabe de quién es el depósito. Hasta entonces no incide el criterio de las políticas de registro.",
-        acc:["Preguntar al cliente por el grupo de WhatsApp.","Volver a este árbol cuando tengas la respuesta: el tratamiento cambia por completo según lo que conteste."], mod:"2026-09-14"},
-      q2:{p:"¿La empresa tiene saldo de caja irreal?", o:[
-        {t:"Sí, hay caja irreal", ir:"r_cajairreal"},
-        {t:"No hay caja irreal", ir:"q3"}
-      ]},
-      q3:{p:"¿Hay saldo en ventas en efectivo pendientes de depositar?", o:[
-        {t:"Sí", ir:"r_ventas"},
-        {t:"No", ir:"q4"}
-      ]},
-      q4:{p:"¿Hay saldo viejo en gastos por comprobar?", o:[
-        {t:"Sí, de meses hacia atrás", ir:"r_gxc"},
-        {t:"No hay nada de lo anterior", ir:"r_anticipo"}
-      ]},
-
-      r_cajairreal:{fin:1, t:"Se trata como si el dinero hubiera salido de la caja irreal",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Caja","","H"]],
-        base:"Primer supuesto de la cascada. La cascada corre completa para cualquier depósito en efectivo no reconocido, tenga o no la empresa caja irreal: el encabezado del inciso describe el caso típico, no una condición de entrada.",
-        acc:["Dejar nota en papeles de trabajo de que este depósito consumió saldo de caja irreal, para poder explicar el movimiento del saldo."]},
-
-      r_ventas:{fin:1, t:"Se abona a ventas en efectivo no depositadas",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Caja / ventas en efectivo por depositar","","H"]],
-        base:"Segundo supuesto de la cascada.",
-        acc:["Si la caja está subdividida por sucursal, abonar a la sucursal que corresponda."]},
-
-      r_gxc:{fin:1, t:"Se trata como reintegro en efectivo de un gasto por comprobar viejo",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Gastos por comprobar / subcuenta del responsable","","H"]],
-        base:"Tercer supuesto de la cascada.",
-        acc:["Identificar de qué subcuenta se descuenta. Si no se puede, no forzar: pasar al siguiente supuesto."]},
-
-      r_anticipo:{fin:1, t:"Anticipo de clientes, desglosando IVA si la actividad lo causa",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Anticipo de clientes / tasa que corresponda / pendiente de facturar","","H"],["IVA por causar, si aplica","","H"]],
-        base:"Último supuesto de la cascada. El desglose de IVA depende de la actividad del contribuyente.",
-        acc:["Este anticipo debe facturarse al mes siguiente de registrarse, o a más tardar el último día del año.","Va a la subcuenta «pendiente de facturar» hasta que exista el CFDI."]},
-
-      r_acreedor:{fin:1, t:"Préstamo de acreedores, subcuenta depósitos no identificados",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Acreedores diversos / DEPÓSITOS NO IDENTIFICADOS","","H"]],
-        base:"Bancos y Acreedores diversos, con la misma redacción.",
-        acc:["Anotar en el escrito de pendientes del mes."],
-        choca:"c-deposito"},
-
-      r_prestamo:{fin:1, t:"Préstamo a nombre de quien lo otorgó",
-        asiento:[["Bancos / cuenta donde entró","D",""],["Acreedores diversos / nombre de quien prestó","","H"]],
-        base:"Bancos. Exige que la notificación del cliente haya llegado por correo.",
-        acc:["Pedir el nombre de quien prestó el dinero.","Observar en el escrito de pendientes que el préstamo debe respaldarse con contrato notariado.","Dejar constancia y no volver a dar seguimiento, haya o no contrato. La política es explícita en esto."]},
-
-      r_sincorreo:{fin:1, t:"Todavía no alcanza para registrarlo como préstamo",
-        base:"Bancos pide la notificación «por medio de un correo». Un mensaje de WhatsApp no la sustituye.",
-        acc:["Pedirle al cliente que lo confirme por correo.","Mientras no llegue, el depósito se trata como no identificado.","Este es uno de los casos donde falta la regla de reiteración: no está escrito cuántas veces se insiste ni qué pasa si nunca contesta."]}
-    }
-  },
-
-  retiro:{
-    n:"Salió dinero del banco y no hay factura",
-    sub:"Bancos · Bancos · Gastos por comprobar",
-    ini:"q1",
-    nodos:{
-      q1:{p:"¿Tienes el comprobante de la transferencia?", o:[
-        {t:"Sí, tengo el comprobante", ir:"q2"},
-        {t:"No, solo aparece en el estado de cuenta", ir:"q3"}
-      ]},
-      q2:{p:"¿El nombre del beneficiario y el importe coinciden con una factura que se le debe a un proveedor?", o:[
-        {t:"Sí, coinciden", ir:"r_complemento"},
-        {t:"No coinciden o no se puede saber", ir:"q_resp"}
-      ]},
-      q_resp:{p:"¿Qué contestó el cliente sobre ese pago?", o:[
-        {t:"Que sí va a haber factura", ir:"r_beneficiario"},
-        {t:"Que no va a haber comprobante", ir:"r_sincomp"},
-        {t:"Todavía no contesta", ir:"r_espera"}
-      ]},
-      q3:{p:"¿El concepto del movimiento dice retiro en efectivo o cobro de cheque?", o:[
-        {t:"Sí", ir:"r_efectivo"},
-        {t:"No, y no se puede identificar al beneficiario", ir:"r_noident"}
-      ]},
-
-      r_beneficiario:{fin:1, t:"Gastos por comprobar a nombre del beneficiario de la transferencia",
-        asiento:[["Gastos por comprobar / nombre del beneficiario","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Bancos y gastos por comprobar. El registro es por el valor total del cargo en el estado de cuenta, sin desglosar IVA.",
-        acc:["Observar al contribuyente que la transferencia no tiene comprobante fiscal y preguntar si el proveedor va a facturar o si será operación sin comprobante.","No detener el cierre por esto.","A los dos meses de cerrado el mes, si no se comprobó, pasa a no deducibles y se deja de recordar."]},
-
-      r_sincomp:{fin:1, t:"Sin comprobante fiscal, y el caso queda cerrado",
-        asiento:[["No deducibles / sin comprobante fiscal","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Decidido el 14 de septiembre de 2026. No es obligatorio que el cliente consiga el comprobante: basta con que diga que no va a haber comprobación, y con eso se reconoce en sin comprobante fiscal. La política de gastos por comprobar ya mandaba preguntarlo.",
-        acc:["No hay que esperar los dos meses del plazo de gastos por comprobar: la respuesta del cliente cierra el caso de una vez.","Dejar constancia en el escrito de pendientes de que el cliente manifestó que no habrá comprobante.","El IVA de esta operación no es acreditable."], mod:"2026-09-14"},
-
-      r_espera:{fin:1, t:"Gastos por comprobar, y la ficha no avanza",
-        asiento:[["Gastos por comprobar / nombre del beneficiario","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Lo que se espera del cliente es la respuesta, no el comprobante. Mientras no conteste ni que sí ni que no, la ficha no pasa a revisión de cierre.",
-        acc:["A los dos meses de cerrado el mes, si no hubo respuesta ni comprobante, pasa a no deducibles y se deja de recordar.","Todavía no está escrito cuántas veces se insiste cuando el cliente no contesta nada."], mod:"2026-09-14"},
-
-      r_efectivo:{fin:1, t:"Gastos por comprobar, subcuenta Retiros en efectivo",
-        asiento:[["Gastos por comprobar / Retiros en efectivo","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"gastos por comprobar. Ojo: esto no se carga a caja. Caja lo prohíbe expresamente para retiros de cajero sin comprobante.",
-        acc:["Subcuenta con el nombre del contribuyente cuando se trate de retiro de cajero.","Mismo plazo de dos meses antes de pasar a no deducibles."]},
-
-      r_noident:{fin:1, t:"Gastos por comprobar, subcuenta NO IDENTIFICADOS",
-        asiento:[["Gastos por comprobar / NO IDENTIFICADOS","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Bancos y gastos por comprobar, con redacción idéntica en los dos lugares.",
-        acc:["No detener el cierre por esto.","Anotarlo en el escrito de pendientes y mandar la observación al grupo del cliente."]},
-
-      r_complemento:{fin:1, t:"Es un pago a proveedor: insistir en el complemento",
-        asiento:[["Gastos por comprobar / nombre del beneficiario","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"GxC manda insistir en la solicitud del complemento de pago cuando nombre e importe coinciden con una factura adeudada.",
-        acc:["Insistir en el complemento de pago. Hasta que llegue, no se carga a proveedores.","Cuando llegue el complemento, reclasificar de gastos por comprobar a proveedores.","Aquí falta la regla de cuántas veces se insiste y qué pasa si el proveedor nunca lo emite."]}
-    }
-  },
-
-  pago:{
-    n:"Pagué un gasto: ¿contra qué cuenta lo abono?",
-    sub:"Caja · Acreedores diversos · Gastos generales",
-    ini:"q1",
-    nodos:{
-      q1:{p:"¿Con qué forma de pago viene el CFDI recibido?", o:[
-        {t:"01 efectivo", ir:"q2"},
-        {t:"04 o 28, tarjeta", ir:"q_tarjeta"},
-        {t:"03 transferencia o 02 cheque", ir:"q3"},
-        {t:"99 por definir", ir:"r_ppd"}
-      ]},
-      q2:{p:"¿El nodo total del CFDI pasa de $2,000.00?", o:[
-        {t:"No, es menor", ir:"r_caja"},
-        {t:"Sí, pasa de dos mil", ir:"r_dosmil"}
-      ]},
-      q_tarjeta:{p:"¿De quién es la tarjeta?", o:[
-        {t:"De la empresa, de débito", ir:"r_banco"},
-        {t:"De la empresa, de crédito", ir:"r_tdc"},
-        {t:"De un tercero, un socio o el dueño", ir:"r_tarjeta"}
-      ]},
-      q3:{p:"¿El pago salió de una cuenta bancaria de la empresa?", o:[
-        {t:"Sí, de una cuenta propia", ir:"r_banco"},
-        {t:"No, lo pagó un tercero o un socio", ir:"r_terceros"}
-      ]},
-
-      r_caja:{fin:1, t:"Abono directo a caja",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA acreditable","D",""],["Caja","","H"]],
-        base:"Caja. Aplica sea deducible o no la operación.",
-        acc:["Un CFDI, un abono. No sumar comprobantes para hacer un solo movimiento.","Si la empresa tiene caja irreal y hay gastos sin reembolsar, no se pide el reembolso: simplemente se abona a caja por cada CFDI."]},
-
-      r_dosmil:{fin:1, t:"No deducibles, sin requisitos fiscales",
-        asiento:[["No deducibles / sin requisitos fiscales","D",""],["IVA NO ACREDITABLE DEDUCIBLE","D",""],["Caja","","H"]],
-        base:"Caja y Gastos generales. El IVA no se acredita.",
-        acc:["El nombre de la cuenta quedó unificado el 14 de septiembre de 2026: IVA NO ACREDITABLE DEDUCIBLE.","Falta darla de alta en el catálogo del despacho y falta el concepto agrupador en HTTax."], mod:"2026-09-14"},
-
-      r_tdc:{fin:1, t:"Acreedores bancarios, por la tarjeta de crédito",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA acreditable","D",""],["Acreedores bancarios / institución e instrumento","","H"]],
-        base:"Decidido el 14 de septiembre de 2026. Una tarjeta de crédito propia no es cuenta de efectivo: su saldo es lo que se le debe al banco.",
-        acc:["Se concilia contra su estado de cuenta igual que cualquier otra cuenta bancaria, haya o no aparecido facturas con esa forma de pago en el mes."], mod:"2026-09-14"},
-
-      r_tarjeta:{fin:1, t:"Acreedores diversos, pago a cuenta de terceros",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA acreditable","D",""],["Acreedores diversos / pago a cuenta de terceros","","H"]],
-        base:"Caja y Acreedores diversos, con la aclaración del 14 de septiembre de 2026: solo cuando el pago no lo hizo el cliente con sus propias cuentas. Se abona el nodo total.",
-        acc:["Si la tarjeta fuera de la empresa, el abono va a bancos si es de débito o a acreedores bancarios si es de crédito.","Todavía no está escrito qué subcuenta usar cuando quien paga es el dueño o un socio, en lugar de un tercero externo."], mod:"2026-09-14"},
-
-      r_banco:{fin:1, t:"Abono a la cuenta bancaria de origen",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA acreditable","D",""],["Bancos / cuenta de origen","","H"]],
-        base:"Bancos. Aplica igual a la tarjeta propia de la empresa, que es una cuenta bancaria como cualquier otra y se concilia."},
-
-      r_terceros:{fin:1, t:"Acreedores diversos, pago a cuenta de terceros",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA acreditable","D",""],["Acreedores diversos / pago a cuenta de terceros","","H"]],
-        base:"Acreedores diversos."},
-
-      r_ppd:{fin:1, t:"Es un PPD: se provisiona en proveedores",
-        asiento:[["Gasto o costo que corresponda","D",""],["IVA por acreditar","D",""],["Proveedores / clasificación por tasa","","H"]],
-        base:"Proveedores. El IVA va a por acreditar hasta que llegue el complemento de pago.",
-        acc:["Si es deducción personal o gasto no deducible, va a proveedores subcuenta deducciones personales y su IVA no es acreditable.","El IVA por acreditar debe guardar relación con proveedores gravados al 16%."]}
-    }
-  }
-};
 
 const ETAPAS = [
   {n:1, z:"Inicio proceso", fase:"A", t:"Solicitud de documentación", r:"CP interno asignado", f:"2024-10-01", ok:1,
@@ -1711,8 +1334,7 @@ const ETAPAS = [
      "No se permiten ANNB. Todos los ANNB deben ser aclarados sin excepción.",
      "No se permiten ABNN, sin excepción.",
      "Ninguna subcuenta de bancos o de tarjeta de crédito puede quedar sin conciliar: si falta una, la empresa no pasa a revisión de cierre."
-   ],
-   arbol:"cb"},
+   ]},
   {n:7, z:"CB terminada", fase:"B", t:"Revisión de captura", r:"CP interno asignado", f:"2024-11-04", ok:0,
    s:"Diferencias de registro dentro del umbral y todos los UUID con palomita.",
    subs:[
@@ -1825,18 +1447,18 @@ const CHECKLIST = [
 ];
 
 const TABLERO = [
-  {e:"INICIO PROCESO", q:"", ok:1},
-  {e:"CAPTURA DE EyR", q:"", ok:1},
-  {e:"CONC BANCARIA", q:"", ok:1},
-  {e:"CB TERMINADA", q:"", ok:1},
-  {e:"REVISAR EL CIERRE", q:"Se confunde con REVISANDO CIERRE. Esta es la entrega del CP.", ok:0},
-  {e:"CORRECCIO DE OBSERV", q:"Errata en el nombre.", ok:0},
-  {e:"REVISANDO CIERRE", q:"Se confunde con REVISAR EL CIERRE. Esta es la revisión del jefe de contabilidad. Las observaciones y sus respuestas van como comentarios nuevos, o editando y arrobando al jefe de contabilidad.", ok:0},
-  {e:"CIERRE AUTORIZADOI", q:"Errata en el nombre. Desde este estado ya no se modifica la balanza, y sin pasar por él no se declara.", ok:0},
-  {e:"PRESENTAR DIOT", q:"", ok:1},
-  {e:"PROCESO TERMINADO", q:"", ok:1},
-  {e:"(falta) DETENIDO POR EL CLIENTE", q:"Estando ahí no hay nada que hacer salvo seguir recordando. La responsabilidad del despacho se pausó en el momento en que el cliente no contestó.", falta:1, mod:"2026-09-14"}
+  {e:"INICIO PROCESO", q:"Es el estatus donde debe estar la ficha cada 4 del mes. Si la ficha no se encuentra en este estatus, se debe solicitar al jefe de contabilidad que la mueva. El servicio arranca en este estatus y el contador interno debe moverla cuando iniciará la captura en tesorería.", mod:"2026-09-28"},
+  {e:"CAPTURA DE EyR", q:"El contador interno debe moverla cuando iniciará la captura de los XML en tesorería.", mod:"2026-09-28"},
+  {e:"CONC BANCARIA", q:"El contador interno debe moverla cuando iniciará el proceso de conciliación bancaria.", mod:"2026-09-28"},
+  {e:"CB TERMINADA", q:"El contador interno debe moverla cuando termina el proceso de conciliación bancaria.", mod:"2026-09-28"},
+  {e:"REVISAR EL CIERRE", q:"El contador interno debe moverla cuando haya terminado la captura y la revisión de saldos, y solicite al jefe de contabilidad que se revise el cierre terminado y completo.", mod:"2026-09-28"},
+  {e:"CORRECCIO DE OBSERV", q:"El jefe de contabilidad es quien mueve este estatus, y el contador interno debe resolver cualquier inquietud u observación que haya hecho.", mod:"2026-09-28"},
+  {e:"REVISION DEL CIERRE", q:"El jefe de contabilidad es quien mueve este estatus, y significa que esa empresa está siendo revisada, por lo cual no se debe hacer ninguna modificación solicitada.", mod:"2026-09-28"},
+  {e:"CIERRE AUTORIZADO", q:"El jefe de contabilidad es quien mueve este estatus, y el contador interno ya no tiene autorización para modificar ningún registro en contabilidad.", mod:"2026-09-28"},
+  {e:"PRESENTAR DIOT", q:"El jefe de contabilidad es quien mueve este estatus, y el contador interno deberá presentar la DIOT con los requisitos indicados en la lista de comprobación.", mod:"2026-09-28"},
+  {e:"PROCESO TERMINADO", q:"El jefe de contabilidad es quien mueve este estatus, el contador interno ya no tiene autorización para modificar ningún registro en contabilidad y el servicio del mes ha terminado.", mod:"2026-09-28"}
 ];
+
 
 const COMUNICACION = {
   f:"2026-09-14",
@@ -1848,7 +1470,7 @@ const COMUNICACION = {
     "La autorización de una modificación de balanza va siempre por Zoho, sin excepción, aunque el jefe de contabilidad esté presente y conteste en el momento. Autorizar no es lo mismo que resolver una duda.",
     "Para acusar de recibido un comentario se usa «enterado», nunca «recibido». Recibido nombra un tipo de comprobante fiscal, y en un hilo sobre UUID se lee como el tipo de documento y no como acuse. Ya ocurrió.",
     "Una modificación de comentario no cuenta por sí sola como información recibida, porque Zoho no notifica las ediciones. Para que cuente hay dos caminos: modificar el comentario y arrobar al jefe de contabilidad, o colocar un comentario nuevo en el hilo.",
-    "No sustituye a los canales que ya tienen regla propia: el préstamo del cliente se notifica por correo, y el apoyo para depurar una partida se pide por Zoho."
+    "No sustituye a los canales que ya tienen regla propia."
   ]
 };
 
@@ -1880,32 +1502,11 @@ const COM_CLIENTE = {
   regla:"Las observaciones se mandan al grupo de WhatsApp del cliente como mensaje. El escrito de pendientes se sigue llevando como papel de trabajo, pero ya no se envía y en la práctica ya no se revisa.",
   notas:[
     "La reiteración depende de si la observación detiene el cierre. Si lo detiene, se recuerda cada tres o cuatro días. Si no lo detiene, se vuelve a plantear en cada cierre.",
-    "Ya no se solicita autorización del cliente para presentar las declaraciones. Es una decisión del 14 de septiembre de 2026 y hay que quitarla de la guía de contabilidad, que todavía la promete en tres lugares.",
-    "Sí se entrega la contabilidad completa: balanza de comprobación, auxiliares, pólizas, estados financieros y el cálculo de impuestos del mes, además de las declaraciones y sus acuses.",
     "El medio de entrega lo elige el cliente y queda anotado por empresa en el XLS de empresas activas. El correo es el medio formal y WhatsApp el práctico."
   ],
-  porque:[
-    {t:"La regla de oro que se le da al cliente", d:"Cada depósito o retiro de sus cuentas bancarias debe estar respaldado por un comprobante fiscal, salvo que por su naturaleza no deba tenerlo. Todo lo demás de la guía de documentación existe para cumplir esa sola regla. No requieren comprobante: traspasos entre cuentas propias, capital tomado en préstamo, donaciones y alimentos entre cónyuges e hijos, y aportaciones de capital. Los préstamos y donaciones se respaldan con contrato notarial."},
-    {t:"Por qué importa que el cliente avise lo que no tendrá respaldo", d:"Un depósito sin explicación se presume ingreso y un retiro sin comprobante no es deducible. La guía le pide expresamente que no tenga reparo en decir que un movimiento no tendrá respaldo: saberlo desde el principio permite darle el tratamiento correcto. Lo que retrasa la entrega es que el movimiento quede sin explicación y haya que preguntarle después. Es la contraparte, del lado del cliente, de la regla de que basta con que diga que no habrá comprobante."},
-    {t:"El marco que sostiene todo esto", d:"Los artículos 28 y 33 del CFF. La contabilidad se integra por facturas, estados de cuenta, contratos de préstamos, contratos de trabajadores, clientes y proveedores, pedimentos, pago de impuestos y cuotas, actas constitutivas y asambleas en personas morales, y toda la documentación soporte de los depósitos y retiros. Una contabilidad incompleta puede derivar en multas por cada dato no integrado. El plazo general de conservación es de cinco años, salvo actas constitutivas y aumentos de capital, que se conservan mientras subsista la sociedad."},
-    {t:"Materialidad", d:"Una factura pagada, por sí sola, ya no acredita una deducción si no hay evidencia de que el bien o el servicio existió. En una auditoría se piden cotizaciones, órdenes de compra, correos, entregables, reportes, bitácoras, fotografías y control de inventarios y de activos fijos. Integrar esa evidencia es responsabilidad del cliente."},
-    {t:"Por qué se dejó de revisar el Word", d:"No falló por ser Word. Falló porque podaba sin dejar rastro: no se podía ver qué se escribía ni qué se quitaba, así que dejó de ser una bitácora y se volvió una foto del último momento en que alguien lo tocó. Una foto no se puede supervisar, porque no distingue entre un pendiente resuelto, uno borrado por error y uno que nunca se escribió."},
-    {t:"Por qué WhatsApp tampoco alcanza", d:"Tiene la mitad complementaria: rastro completo, orden cronológico, nada se borra. Pero no acumula estado, así que no hay forma de mirar el grupo y saber qué sigue abierto. Es la razón por la que el folio pendiente de cancelar se perdió aunque se hubiera avisado."}
-  ]
+  porque:[]
 };
 
-const BITACORA_VPS = {
-  estado:"En planes",
-  d:"No es solo el reemplazo del escrito de pendientes: el objetivo es que el VPS detecte los pendientes a comunicar al cliente y los genere solo. La bitácora es donde viven, no donde se escriben a mano.",
-  req:[
-    "Detectar los pendientes desde los datos que el VPS ya tiene: un PPD sin complemento, un retiro sin comprobante, un depósito no identificado, un comprobante cancelado con póliza, un uso de CFDI que no corresponde, una factura de clientes con antigüedad.",
-    "Admitir también los pendientes que no se detectan solos, porque nacen del criterio del contador y no de un dato.",
-    "Cada pendiente sabe a qué empresa y a qué mes pertenece. El tablero de Zoho no tiene dimensión de mes y esa es su falla.",
-    "Podar es cambiar de estado, no borrar: lo cerrado sigue siendo consultable. Fue la falla del Word.",
-    "En una sola pantalla se ve qué sigue abierto y desde cuándo. Fue la falla de WhatsApp.",
-    "Saber cuáles detienen el cierre y cuáles no, porque de eso depende la cadencia: cada tres o cuatro días los que detienen, cada cierre los que no."
-  ]
-};
 
 
 const UBICACIONES = [
@@ -1978,17 +1579,17 @@ function pintarRail(){
   document.getElementById("rail").innerHTML =
     b("tablero",null,"Tablero de procesos") +
     b("cambios",null,"Modificaciones", INICIAL ? undefined : CAMBIOS_MES.length, CAMBIOS_MES.length>0) +
-    `<h4>Resolver un caso</h4>` +
-    b("consulta",null,"Consultar") +
     `<h4>Antes de publicar</h4>` +
     b("conflictos",null,"Contradicciones", sinResolver, sinResolver>0) +
     b("faltantes",null,"Reglas por escribir", FALTANTES.length, true) +
-    `<h4>Referencia</h4>` +
+    `<h4>Políticas</h4>` +
     b("formato",null,"Formato de CB") +
-    b("revision",null,"Revisión de cierre", PUNTOS.length) +
+    b("revision",null,"Revisión de cierre") +
     b("glosario",null,"Glosario") +
     b("cuentas",null,"Políticas de registro", vacias+" ⌀") +
     b("proceso",null,"Detalle de las etapas") +
+    b("comunicacion",null,"Reglas de comunicación") +
+    b("zoho",null,"Tablero de Zoho") +
     b("ubicaciones",null,"Dónde vive cada cosa", UBICACIONES.length);
 }
 
@@ -1996,8 +1597,10 @@ function pintarRail(){
 const ANCLAS = new Set(["glosario","revision","formato"]);
 
 function ir(v,id){
-  const ancla = ANCLAS.has(v) ? id : null;
-  ruta = {v, id: ancla ? null : (id || null)};
+  // un id que empieza con "#" es un ancla dentro de la página, en cualquier vista
+  const esAncla = typeof id === "string" && id.startsWith("#");
+  const ancla = esAncla ? id.slice(1) : (ANCLAS.has(v) ? id : null);
+  ruta = {v, id: (esAncla || ANCLAS.has(v)) ? null : (id || null)};
   pintarRail(); pintar();
   if(ancla){
     setTimeout(()=>{
@@ -2026,7 +1629,7 @@ document.getElementById("rail").addEventListener("click", e=>{
 function pintar(){
   const v = document.getElementById("vista");
   const f = {
-    tablero:vTablero, cambios:vCambios, formato:vFormato, consulta:vConsulta, conflictos:vConflictos, faltantes:vFaltantes,
+    tablero:vTablero, cambios:vCambios, formato:vFormato, comunicacion:vComunicacion, zoho:vZoho, conflictos:vConflictos, faltantes:vFaltantes,
     glosario:vGlosario, cuentas:vCuentas, proceso:vProceso,
     ubicaciones:vUbicaciones,
     revision:vRevision
@@ -2060,9 +1663,67 @@ const POLITICA_CAMBIOS = [
 ];
 
 const CAMBIOS = [
-  {f:"2026-09-28", k:"Regla", t:"Principio en la portada: todas nuestras acciones van apegadas a procesos", v:"tablero",
+  {f:"2026-09-28", k:"Regla", t:"Descripción de cada estatus del tablero", v:"zoho", id:"#tablero-zoho",
+   d:"La tabla del tablero dejó de listar pendientes y ahora describe cada estatus: cuándo debe estar la ficha ahí, quién lo mueve y qué puede o no hacer el contador interno en cada uno."},
+  {f:"2026-09-28", k:"Baja", t:"El estatus detenido por el cliente", v:"zoho", id:"#tablero-zoho",
+   de:"Tablero de Zoho",
+   d:"Se quitó de la tabla el renglón del estatus que faltaba.",
+   quitado:["(falta) DETENIDO POR EL CLIENTE · Estando ahí no hay nada que hacer salvo seguir recordando. La responsabilidad del despacho se pausó en el momento en que el cliente no contestó."]},
+  {f:"2026-09-28", k:"Traslado", t:"Tablero de Zoho", v:"zoho", id:"#tablero-zoho",
+   de:"Detalle de las etapas",
+   d:"El apartado del tablero de Zoho, con sus secciones, el estado de detenido por el cliente y el límite de que no tiene dimensión de mes, ahora es una sección propia dentro de Políticas."},
+  {f:"2026-09-28", k:"Traslado", t:"Cuando no hay regla o cuando la regla es ambigua", v:"comunicacion", id:"#sin-regla",
+   de:"Detalle de las etapas",
+   d:"El bloque de preguntar es parte del proceso, con sus notas y la fórmula para plantear una duda, ahora vive en Reglas de comunicación. El título dice además cuando la regla es ambigua."},
+  {f:"2026-09-28", k:"Baja", t:"Los ejemplos de canales con regla propia", v:"comunicacion", id:"#com-interna",
+   de:"Reglas de comunicación · Comunicación interna",
+   d:"La nota de que la regla no sustituye a los canales que ya tienen regla propia se quedó sin sus dos ejemplos.",
+   quitado:["el préstamo del cliente se notifica por correo, y el apoyo para depurar una partida se pide por Zoho"]},
+  {f:"2026-09-28", k:"Baja", t:"Bitácora sobre el VPS", v:"proceso",
+   de:"Detalle de las etapas",
+   d:"Se quitó el bloque que describía la bitácora en planes sobre el VPS y sus seis requisitos.",
+   quitado:[
+     "No es solo el reemplazo del escrito de pendientes: el objetivo es que el VPS detecte los pendientes a comunicar al cliente y los genere solo. La bitácora es donde viven, no donde se escriben a mano.",
+     "Detectar los pendientes desde los datos que el VPS ya tiene: un PPD sin complemento, un retiro sin comprobante, un depósito no identificado, un comprobante cancelado con póliza, un uso de CFDI que no corresponde, una factura de clientes con antigüedad.",
+     "Admitir también los pendientes que no se detectan solos, porque nacen del criterio del contador y no de un dato.",
+     "Cada pendiente sabe a qué empresa y a qué mes pertenece. El tablero de Zoho no tiene dimensión de mes y esa es su falla.",
+     "Podar es cambiar de estado, no borrar: lo cerrado sigue siendo consultable. Fue la falla del Word.",
+     "En una sola pantalla se ve qué sigue abierto y desde cuándo. Fue la falla de WhatsApp.",
+     "Saber cuáles detienen el cierre y cuáles no, porque de eso depende la cadencia: cada tres o cuatro días los que detienen, cada cierre los que no."
+   ]},
+  {f:"2026-09-28", k:"Baja", t:"Cuatro porqués de comunicación con el cliente", v:"comunicacion", id:"#com-cliente",
+   de:"Reglas de comunicación · Comunicación con el cliente",
+   d:"Se quitaron cuatro párrafos: el marco de los artículos 28 y 33 del CFF, el de materialidad, y los dos que explicaban por qué dejaron de servir el Word y WhatsApp.",
+   quitado:[
+     "Los artículos 28 y 33 del CFF. La contabilidad se integra por facturas, estados de cuenta, contratos de préstamos, contratos de trabajadores, clientes y proveedores, pedimentos, pago de impuestos y cuotas, actas constitutivas y asambleas en personas morales, y toda la documentación soporte de los depósitos y retiros. Una contabilidad incompleta puede derivar en multas por cada dato no integrado. El plazo general de conservación es de cinco años, salvo actas constitutivas y aumentos de capital, que se conservan mientras subsista la sociedad.",
+     "Una factura pagada, por sí sola, ya no acredita una deducción si no hay evidencia de que el bien o el servicio existió. En una auditoría se piden cotizaciones, órdenes de compra, correos, entregables, reportes, bitácoras, fotografías y control de inventarios y de activos fijos. Integrar esa evidencia es responsabilidad del cliente.",
+     "No falló por ser Word. Falló porque podaba sin dejar rastro: no se podía ver qué se escribía ni qué se quitaba, así que dejó de ser una bitácora y se volvió una foto del último momento en que alguien lo tocó. Una foto no se puede supervisar, porque no distingue entre un pendiente resuelto, uno borrado por error y uno que nunca se escribió.",
+     "Tiene la mitad complementaria: rastro completo, orden cronológico, nada se borra. Pero no acumula estado, así que no hay forma de mirar el grupo y saber qué sigue abierto. Es la razón por la que el folio pendiente de cancelar se perdió aunque se hubiera avisado."
+   ]},
+  {f:"2026-09-28", k:"Traslado", t:"Por qué importa que el cliente avise lo que no tendrá respaldo", v:"cuentas", id:"caja",
+   de:"Reglas de comunicación · Comunicación con el cliente",
+   d:"El párrafo sobre por qué un movimiento sin explicación se presume ingreso o pierde la deducción ahora vive en las reglas generales de Caja."},
+  {f:"2026-09-28", k:"Definición", t:"Guía de documentación", v:"glosario", id:"#g-guia-de-documentacion",
+   d:"Entra al glosario: es la guía de documentación fiscal en PDF que se le envía a los clientes para que tengan una mejor referencia de cómo deben ordenar sus transferencias y facturas."},
+  {f:"2026-09-28", k:"Traslado", t:"La regla de oro", v:"cuentas", id:"caja",
+   de:"Reglas de comunicación · Comunicación con el cliente",
+   d:"La regla de que cada depósito o retiro debe estar respaldado por un comprobante fiscal, salvo que por su naturaleza no deba tenerlo, ahora vive en las reglas generales de Caja."},
+  {f:"2026-09-28", k:"Baja", t:"Dos notas de comunicación con el cliente", v:"comunicacion", id:"#com-cliente",
+   de:"Reglas de comunicación · Comunicación con el cliente",
+   d:"Se quitaron dos notas de la regla de qué recibe el cliente y por dónde.",
+   quitado:[
+     "Ya no se solicita autorización del cliente para presentar las declaraciones. Es una decisión del 14 de septiembre de 2026 y hay que quitarla de la guía de contabilidad, que todavía la promete en tres lugares.",
+     "Sí se entrega la contabilidad completa: balanza de comprobación, auxiliares, pólizas, estados financieros y el cálculo de impuestos del mes, además de las declaraciones y sus acuses."
+   ]},
+  {f:"2026-09-28", k:"Traslado", t:"Comunicación interna", v:"comunicacion", id:"#com-interna",
+   de:"Detalle de las etapas",
+   d:"La regla de qué va por Zoho y qué puede ser verbal, con sus notas, ahora vive en Reglas de comunicación."},
+  {f:"2026-09-28", k:"Traslado", t:"Comunicación con el cliente", v:"comunicacion", id:"#com-cliente",
+   de:"Detalle de las etapas",
+   d:"La regla de qué recibe el cliente y por dónde, con sus notas y sus porqués, ahora vive en Reglas de comunicación."},
+  {f:"2026-09-28", k:"Regla", t:"Principio en la portada: todas nuestras acciones van apegadas a procesos", v:"tablero", id:"#lema",
    d:"En caso de duda se consulta el proceso y, si la duda persiste, se pregunta al jefe de contabilidad. La forma correcta de dirigirse a él es plantear la duda, dar contexto, fundamentarla con lo que sí dice el proceso o dónde es ambiguo, y manifestar qué se busca."},
-  {f:"2026-09-28", k:"Regla", t:"Fórmula para plantear una duda", v:"proceso",
+  {f:"2026-09-28", k:"Regla", t:"Fórmula para plantear una duda", v:"comunicacion", id:"#formula-duda",
    d:"Una consulta lleva la duda, el contexto, el análisis apegado a procesos y la regla en la que se apoya. El jefe de contabilidad orienta y aclara, no decide por quien consulta. Si no se puede citar la regla, la consulta es el aviso de que esa regla no existe."}
 ];
 
@@ -2100,12 +1761,17 @@ function vCambios(){
     CAMBIOS.filter(c=>c.f===f).forEach(c=>{
       h += `<div class="cambio${nuevos?" esteMes":""}">
         <h4>${esc(c.t)}</h4><p>${esc(c.d)}</p>
+        ${c.de?`<p class="traslado"><b>${c.k==="Baja"?"Estaba en":"Antes estaba en"}:</b> ${esc(c.de)}</p>`:""}
+        ${c.quitado?`<div class="quitado"><b>Texto que se quitó</b><ul>${c.quitado.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
         <div class="pie"><span class="marbete ${nuevos?'m-nuevo':'m-gris'}">${esc(c.k)}</span>
         <button class="btn btn-hueco" data-camb="${c.v}" data-cambid="${c.id||""}" style="padding:4px 11px;font-size:12.5px">Ir</button></div></div>`;
     });
   });
 
-  h += `<h2>Cómo se marca un cambio</h2>
+  h += `<h2>Cuando algo cambia de lugar</h2>
+  <p style="max-width:70ch">Si una regla se mueve de una sección a otra, el cambio se registra como traslado: dice dónde estaba antes y el botón lleva a donde quedó. Así, quien ya sabía dónde encontrarla no la pierde de vista.</p>
+
+  <h2>Cómo se marca un cambio</h2>
   <p class="entrada" style="margin-bottom:12px">Esta es la política que gobierna esta sección. Sin ella, el marcado dependería de que alguien se acuerde.</p>
   <ul class="lista">${POLITICA_CAMBIOS.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
   <p class="nota">Las fechas anteriores a septiembre salen de las fuentes: el formato de CB trae la suya por regla, el manual trae 52 fechas de modificación por subproceso, y HTTax su número de versión. Lo de este mes es lo que se corrigió al cruzar las cuatro fuentes entre sí.</p>`;
@@ -2128,6 +1794,11 @@ function resuelto(id){ const c = CONFLICTOS.find(x=>x.id===id); return decisione
 /* Lo que la tabla muestra de cada cuenta: el resumen si existe, si no la primera
    regla general, si no la primera de registro. Solo dice que no hay reglas cuando
    de verdad los tres apartados están vacíos. */
+function resumenTexto(c){
+  const g = (c.generales||[])[0];
+  return c.resumen || (g && (g.t + (g.sub ? " " + g.sub.join(" ") : ""))) || (c.registro[0] && c.registro[0].t) || (c.revision[0] && c.revision[0].t) || "sin criterio escrito";
+}
+
 function resumenDe(c){
   const g = (c.generales||[])[0];
   const t = c.resumen || (g && (g.t + (g.sub ? " " + g.sub.join(" ") : ""))) || (c.registro[0] && c.registro[0].t) || (c.revision[0] && c.revision[0].t);
@@ -2170,7 +1841,7 @@ function vTablero(){
   const manuales = PUNTOS.filter(p=>!p.a).length;
 
   let h = `
-  <section class="lema${esReciente(PRINCIPIO.mod)?" reciente":""}">
+  <section id="lema" class="lema${esReciente(PRINCIPIO.mod)?" reciente":""}">
     <p class="lema-t">${esc(PRINCIPIO.t)}</p>
     <ol class="lema-l">${PRINCIPIO.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
     <p class="lema-d">${esc(PRINCIPIO.d)}</p>
@@ -2195,7 +1866,6 @@ function vTablero(){
   <div class="entrada-caso">
     <b>¿Te cayó un caso?</b>
     <span>Cuatro preguntas y sales con el asiento, el numeral que lo respalda y lo que va al escrito de pendientes.</span>
-    <button data-ir3="consulta">Consultar</button>
   </div>`;
 
   ["A","B","C"].forEach(k=>{
@@ -2229,111 +1899,70 @@ function vTablero(){
 
   setTimeout(()=>{
     document.querySelectorAll("[data-etapa2]").forEach(b=> b.onclick = ()=> ir("proceso", b.dataset.etapa2));
-    document.querySelectorAll("[data-ir3]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir3));
   },0);
   return h;
 }
 
-/* ---------- consulta ---------- */
-let hilo = null;
-
-function vConsulta(){
-  const sinResolver = CONFLICTOS.filter(c=>!resuelto(c.id)).length;
-  let h = "";
-  if(sinResolver > 0){
-    h += `<div class="aviso"><b>${sinResolver} de ${CONFLICTOS.length}</b><span>contradicciones siguen sin resolver. Hasta que se cierren, algunas respuestas de abajo terminan en «escala a Dirección» en lugar de dar un asiento.</span></div>`;
-  }
-  h += `<h1>¿Qué caso tienes?</h1>
-  <p class="entrada">Elige la situación, contesta lo que se te pregunte y al final tienes el asiento, el numeral de la política que lo respalda y lo que hay que anotar en el escrito de pendientes.</p>
-  <div class="casos">`;
-  for(const k in ARBOLES){
-    h += `<button class="caso" data-arbol="${k}"><b>${esc(ARBOLES[k].n)}</b><i>${esc(ARBOLES[k].sub)}</i></button>`;
-  }
-  h += `</div>
-  <div class="ficha" style="border-left:2px solid var(--nuevo);max-width:660px">
-    <div class="ficha-tope"><h3>¿Y si tu caso no está aquí?</h3></div>
-    <p style="margin:0;font-size:14.5px">${esc(REGLA_DUDA.regla)} Un caso no previsto no lo resuelve quien lo encuentra por su cuenta: la respuesta se escribe para que la siguiente vez ya esté.</p>
+/* ---------- tablero de Zoho ---------- */
+function vZoho(){
+  let h = `<h1>Tablero de Zoho</h1>
+  <h2 id="tablero-zoho">Tablero de Zoho</h2>
+  <p class="entrada" style="margin-bottom:14px">Cada movimiento de sección deja registro con firma y fecha. La ficha pasa a revisión cuando captura y conciliación están terminadas; el jefe de contabilidad no revisa nada que no esté en esa sección.</p>
+  <div class="ficha" style="border-left:2px solid var(--nuevo);margin-bottom:14px">
+    <div class="ficha-tope"><h3>Qué significa que una ficha esté detenida</h3></div>
+    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Que no hay nada que hacer salvo seguir recordándole al cliente, con la cadencia que corresponda según si la observación detiene el cierre o no.</p>
+    <p style="margin:0;font-size:14.5px;color:var(--soft)">Si el cliente no contesta, no es responsabilidad del despacho avanzar. La responsabilidad se pausó en el momento en que dejó de contestar. Incluso conviene que el SAT mande cartas invitación o requerimientos, porque es lo que hace que el cliente tome conciencia.</p>
   </div>
-  <div id="hilo"></div>`;
-  setTimeout(()=>{
-    document.querySelectorAll("[data-arbol]").forEach(b=>{
-      b.onclick = ()=>{ hilo = {a:b.dataset.arbol, cam:[]}; pintarHilo(); };
-    });
-    if(hilo) pintarHilo();
-  },0);
+  <div class="ficha" style="border-color:var(--guinda);margin-bottom:14px">
+    <div class="ficha-tope"><h3>El tablero no tiene dimensión de mes</h3><span class="marbete m-alto">límite estructural</span></div>
+    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Es un tablero único, con una ficha por empresa, no uno por mes. No hay forma de distinguir en qué mes se quedó atorada una empresa, ni de ir al tablero del mes que se está modificando.</p>
+    <p style="margin:0;font-size:14.5px;color:var(--soft)">De ahí sale una regla: cuando se pide autorización para modificar un mes ya cerrado, el comentario debe decir de qué mes se trata. Es el único rastro que va a quedar.</p>
+  </div>
+  <table class="datos"><tr><th style="width:230px">Estatus</th><th>Descripción del estatus</th></tr>`;
+  TABLERO.forEach(t=>{
+    h += `<tr><td class="sig" style="${t.falta?'color:var(--guinda)':''}">${esc(t.e)}</td>
+      <td style="color:var(--soft)">${t.q?esc(t.q):'<span style="color:var(--faint)">—</span>'}</td></tr>`;
+  });
+  h += `</table>`;
+
+  setTimeout(()=> document.querySelectorAll("[data-conf3]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf3)),0);
   return h;
 }
 
-function pintarHilo(){
-  const cont = document.getElementById("hilo");
-  if(!cont || !hilo) return;
-  const A = ARBOLES[hilo.a];
-  let id = A.ini, h = `<h2>${esc(A.n)}</h2><div class="hilo">`;
+/* ---------- comunicación ---------- */
+function vComunicacion(){
+  return `<h1>Reglas de comunicación</h1>
 
-  for(let i=0;;i++){
-    const nodo = A.nodos[id];
-    if(!nodo) break;
-    if(nodo.fin){ h += terminal(nodo); break; }
-    const elegida = hilo.cam[i];
-    if(elegida !== undefined){
-      const op = nodo.o[elegida];
-      h += `<div class="paso"><p class="pregunta">${esc(nodo.p)}</p>
-        <p class="elegida"><b>${esc(op.t)}</b> · <button class="lnk" data-volver="${i}" style="background:none;border:0;padding:0;color:var(--guinda);text-decoration:underline">cambiar</button></p></div>`;
-      id = op.ir;
-    }else{
-      h += `<div class="paso viva"><p class="pregunta">${esc(nodo.p)}</p><div class="opciones">`;
-      nodo.o.forEach((o,j)=> h += `<button data-resp="${j}">${esc(o.t)}</button>`);
-      h += `</div></div>`;
-      break;
-    }
-  }
-  h += `</div>`;
-  cont.innerHTML = h;
-  enlazar(cont);
+  <h2 id="sin-regla">Cuando no hay regla o cuando la regla es ambigua</h2>
+  <div class="ficha" style="border-left:2px solid var(--nuevo)">
+    <div class="ficha-tope"><h3>Preguntar es parte del proceso</h3></div>
+    <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.regla)}</p>
+    <ul class="lista" style="font-size:14.5px">${REGLA_DUDA.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+  </div>
+  <div id="formula-duda" class="ficha${esReciente(REGLA_DUDA.formula.mod)?" reciente":""}">
+    <div class="ficha-tope"><h3>${esc(REGLA_DUDA.formula.t)}</h3>${esReciente(REGLA_DUDA.formula.mod)?'<span class="marbete m-nuevo">nuevo</span>':""}</div>
+    <p style="margin:0 0 6px;font-size:14.5px">${esc(REGLA_DUDA.formula.d)}</p>
+    <ul class="condiciones" style="margin:0 0 12px">${REGLA_DUDA.formula.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.formula.cierre)}</p>
+    <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(REGLA_DUDA.formula.sinRegla)}</p>
+  </div>
 
-  cont.querySelectorAll("[data-resp]").forEach(b=>{
-    b.onclick = ()=>{ hilo.cam.push(+b.dataset.resp); pintarHilo(); };
-  });
-  cont.querySelectorAll("[data-volver]").forEach(b=>{
-    b.onclick = ()=>{ hilo.cam = hilo.cam.slice(0, +b.dataset.volver); pintarHilo(); };
-  });
-  cont.querySelectorAll("[data-conf]").forEach(b=>{
-    b.onclick = ()=> ir("conflictos", b.dataset.conf);
-  });
-}
+  <h2 id="com-interna">Comunicación interna</h2>
+  <div class="ficha"${esReciente(COMUNICACION.f)?' style="border-left:2px solid var(--nuevo)"':''}>
+    <div class="ficha-tope"><h3>Qué va por Zoho y qué puede ser verbal</h3>
+      ${esReciente(COMUNICACION.f)?'':''}</div>
+    <p class="cita" style="margin-bottom:12px">${esc(COMUNICACION.regla)}</p>
+    <ul class="lista" style="font-size:14.5px">${COMUNICACION.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+  </div>
 
-function terminal(n){
-  let h = `<div class="paso viva"><p class="pregunta">${esc(n.t)}</p>`;
-  if(n.asiento){
-    h += `<div class="poliza"><div class="poliza-tope"><b>Asiento sugerido</b><span>los importes los pones tú</span></div>
-    <table class="asiento"><tr><th>Cuenta</th><th>Cargo</th><th>Abono</th></tr>`;
-    n.asiento.forEach(([c,d,a])=>{
-      h += `<tr><td${d?"":' class="sangria"'}>${esc(c)}</td><td>${d?"—":""}</td><td>${a?"—":""}</td></tr>`;
-    });
-    h += `</table><div class="narra">${esc(n.base)}</div></div>`;
-  }else{
-    h += `<div class="frena"><h5>Todavía no hay asiento</h5><p>${esc(n.base)}</p></div>`;
-  }
-  if(n.choca){
-    const c = CONFLICTOS.find(x=>x.id===n.choca);
-    const dec = resuelto(n.choca);
-    if(dec){
-      h += `<div class="acciones" style="background:var(--ok-wash);border-color:#BFD6C6">
-        <h5 style="color:var(--ok)">Decisión de Dirección aplicada</h5>
-        <ul><li>${esc(dec.txt)}</li><li style="color:var(--soft)">Registrada el ${esc(dec.fecha)}.</li></ul></div>`;
-    }else{
-      h += `<div class="frena"><h5>Esta respuesta está en disputa</h5>
-        <p>${esc(c.t)} Hay dos políticas vigentes que mandan cosas distintas, así que el asiento de arriba es solo una de las dos lecturas.</p>
-        <button class="btn" data-conf="${n.choca}">Ver la contradicción</button></div>`;
-    }
-  }
-  if(n.acc && n.acc.length){
-    h += `<div class="acciones"><h5>Además del asiento</h5><ul>`;
-    n.acc.forEach(a=> h += `<li>${esc(a)}</li>`);
-    h += `</ul></div>`;
-  }
-  h += `</div>`;
-  return h;
+  <h2 id="com-cliente">Comunicación con el cliente</h2>
+  <div class="ficha" style="border-left:2px solid var(--nuevo)">
+    <div class="ficha-tope"><h3>Qué recibe el cliente y por dónde</h3></div>
+    <p class="cita" style="margin-bottom:12px">${esc(COM_CLIENTE.regla)}</p>
+    <ul class="lista" style="font-size:14.5px">${COM_CLIENTE.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+  </div>
+  ${COM_CLIENTE.porque.map(x=>`<div class="ficha"><div class="ficha-tope"><h3>${esc(x.t)}</h3></div>
+    <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(x.d)}</p></div>`).join("")}`;
 }
 
 /* ---------- conflictos ---------- */
@@ -2433,7 +2062,7 @@ function vFaltantes(){
     h += `</table>`;
   });
 
-  h += `<p class="nota">La urgencia dice si el pendiente ya produjo un error documentado, si es un riesgo conocido que todavía no se materializó, o si es un vacío de fondo que no aprieta. El grupo dice a quién le toca. En la versión con base de datos esta lista se llena sola: cada vez que alguien llega a un callejón sin salida en Consultar, se registra el caso y aparece aquí.</p>`;
+  h += `<p class="nota">La urgencia dice si el pendiente ya produjo un error documentado, si es un riesgo conocido que todavía no se materializó, o si es un vacío de fondo que no aprieta. El grupo dice a quién le toca.</p>`;
   return h;
 }
 
@@ -2525,7 +2154,6 @@ function vCuenta(c){
 
 
   h += `<div class="enlaces">`;
-  if(c.arbol) h += `<button data-ar="${c.arbol}">Resolver un caso de ${esc(c.n.toLowerCase())}</button>`;
   c.etapas.forEach(e=> h += `<button data-v2="proceso">${esc(e)} del cierre</button>`);
   h += `</div>`;
 
@@ -2534,7 +2162,6 @@ function vCuenta(c){
     document.querySelectorAll("[data-v2]").forEach(b=> b.onclick = ()=> ir(b.dataset.v2));
     document.querySelectorAll("[data-conf2]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf2));
     document.querySelectorAll("[data-ir4]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir4));
-    document.querySelectorAll("[data-ar]").forEach(b=> b.onclick = ()=>{ hilo = {a:b.dataset.ar, cam:[]}; ir("consulta"); });
   },0);
   return h;
 }
@@ -2543,12 +2170,7 @@ function vCuenta(c){
 function vProceso(){
   if(ruta.id) return vEtapa(ETAPAS.find(e=>String(e.n)===String(ruta.id)));
   const hoy = new Date("2026-09-14");
-  let h = `<h1>El cierre en 11 etapas</h1>
-  <p class="entrada">Tomadas del manual, hoja Proceso. Cada etapa trae sus subprocesos con los problemas que se sabe que aparecen y la solución que ya se encontró. La última columna dice qué tiene que ser cierto para poder mover la ficha. Cierres y declaraciones al cliente a más tardar el día 15; cortes depurados u observaciones enviadas a más tardar el día 25.</p>
-
-  <div class="aviso"><b>20 meses</b><span>sin tocarse. Las 52 fechas de modificación del manual van de mayo de 2024 a enero de 2025, mientras HTTax va en versión de mayo de 2026.</span></div>
-
-  <table class="datos"><tr><th style="width:40px">#</th><th style="width:230px">Etapa</th><th style="width:110px">Responsable</th><th>Cuándo se puede pasar a la siguiente</th><th style="width:100px">Última edición</th></tr>`;
+  let h = `<table class="datos"><tr><th style="width:40px">#</th><th style="width:230px">Etapa</th><th style="width:110px">Responsable</th><th>Cuándo se puede pasar a la siguiente</th><th style="width:100px">Última edición</th></tr>`;
   ETAPAS.forEach(e=>{
     const meses = Math.round((hoy - new Date(e.f))/2629800000);
     h += `<tr style="cursor:pointer" data-etapa="${e.n}">
@@ -2563,88 +2185,14 @@ function vProceso(){
 
   h += `<h2>Lista de comprobación de la etapa 8</h2>
   <p class="entrada" style="margin-bottom:14px">Se carga automáticamente al iniciar el mes dentro de la ficha de cada empresa. No se marcan los puntos que no le aplican a la empresa.</p>
-  <table class="datos"><tr><th style="width:36px">#</th><th>Punto</th><th style="width:210px">Equivalente en HTTax</th><th style="width:96px">Origen</th></tr>`;
+  <table class="datos"><tr><th style="width:36px">#</th><th>Punto</th></tr>`;
   CHECKLIST.forEach((c,i)=>{
     h += `<tr><td class="sig" style="color:var(--faint)">${i+1}</td><td>
       ${esc(c.t)}${c.nuevo?' <span class="marbete m-tibio">propuesto</span>':''}
       ${c.nota?`<div style="margin-top:5px;font-size:13px;color:${c.choca?'var(--guinda)':'var(--soft)'}">${esc(c.nota)}${c.choca?` <button data-conf3="${c.choca}" style="background:none;border:0;padding:0;color:var(--guinda);text-decoration:underline;font-size:13px">ver contradicción</button>`:""}</div>`:""}
-    </td>
-    <td style="font-size:13px;color:var(--soft)">${esc(c.ht||"—")}</td>
-    <td>${c.origen?`<span class="marbete m-alto">olvido</span>`:`<span class="marbete m-gris">—</span>`}</td></tr>`;
+    </td></tr>`;
   });
-  h += `</table>
-  <div class="ficha" style="margin-top:16px">
-    <div class="ficha-tope"><h3>Por qué existe esta lista</h3></div>
-    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Nació de cinco cosas que al contador se le seguían olvidando aunque se le dijeran verbalmente: no depurar la CB, no hacer el asiento de acreditamiento de IVA, no revisar saldos, no registrar los impuestos declarados en el mes anterior —sobre todo cuando no hubo transferencia que hacer porque hubo acreditamientos o compensaciones—, y no verificar que todos los comprobantes fiscales estuvieran capturados.</p>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">No duplica los puntos de auditoría de HTTax. Esta lista es autocontrol del que ejecuta; aquellos son control de calidad del que revisa. Hoy son dos personas distintas.</p>
-  </div>
-  <div class="ficha" style="margin-top:10px;border-color:var(--guinda)">
-  <div class="ficha" style="margin-top:10px">
-    <div class="ficha-tope"><h3>Qué es y qué no es esta lista</h3></div>
-    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Es un recordatorio de la revisión que debió hacerse antes, no un control del tiempo en que se hace cada revisión. Por eso se marca al terminar: primero el trabajo, después el repaso para confirmar que no faltó nada.</p>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">Tampoco duplica los puntos de auditoría de HTTax. Esta lista es autocontrol del que ejecuta; aquellos son control de calidad del que revisa.</p>
-    <div class="fila-btn"><button class="btn btn-hueco" data-conf3="c-redundante">Ver el detalle</button></div>
-  </div>
-  <div class="ficha" style="margin-top:10px;border-left:2px solid var(--rule-hard)">
-    <div class="ficha-tope"><h3>Sobre medir el tiempo</h3><span class="marbete m-gris">criterio</span></div>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">El tiempo que toma marcar la lista se mide como estadística de mejora y seguimiento, no como control de lo que hace la persona: sirve para ver cómo evoluciona el proceso, no para evaluar a quien lo ejecuta.</p>
-  </div>
-
-  <h2>Tablero de Zoho</h2>
-  <p class="entrada" style="margin-bottom:14px">Cada movimiento de sección deja registro con firma y fecha. La ficha pasa a revisión cuando captura y conciliación están terminadas; el jefe de contabilidad no revisa nada que no esté en esa sección.</p>
-  <div class="ficha" style="border-left:2px solid var(--nuevo);margin-bottom:14px">
-    <div class="ficha-tope"><h3>Qué significa que una ficha esté detenida</h3></div>
-    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Que no hay nada que hacer salvo seguir recordándole al cliente, con la cadencia que corresponda según si la observación detiene el cierre o no.</p>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">Si el cliente no contesta, no es responsabilidad del despacho avanzar. La responsabilidad se pausó en el momento en que dejó de contestar. Incluso conviene que el SAT mande cartas invitación o requerimientos, porque es lo que hace que el cliente tome conciencia.</p>
-  </div>
-  <div class="ficha" style="border-color:var(--guinda);margin-bottom:14px">
-    <div class="ficha-tope"><h3>El tablero no tiene dimensión de mes</h3><span class="marbete m-alto">límite estructural</span></div>
-    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Es un tablero único, con una ficha por empresa, no uno por mes. No hay forma de distinguir en qué mes se quedó atorada una empresa, ni de ir al tablero del mes que se está modificando.</p>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">De ahí sale una regla: cuando se pide autorización para modificar un mes ya cerrado, el comentario debe decir de qué mes se trata. Es el único rastro que va a quedar.</p>
-  </div>
-  <table class="datos"><tr><th style="width:280px">Sección</th><th>Pendiente</th></tr>`;
-  TABLERO.forEach(t=>{
-    h += `<tr><td class="sig" style="${t.falta?'color:var(--guinda)':''}">${esc(t.e)}</td>
-      <td style="color:var(--warn)">${t.q?esc(t.q):'<span style="color:var(--faint)">—</span>'}</td></tr>`;
-  });
-  h += `</table>
-
-  <h2>Cuando no hay regla</h2>
-  <div class="ficha" style="border-left:2px solid var(--nuevo)">
-    <div class="ficha-tope"><h3>Preguntar es parte del proceso</h3></div>
-    <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.regla)}</p>
-    <ul class="lista" style="font-size:14.5px">${REGLA_DUDA.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-  </div>
-  <div class="ficha${esReciente(REGLA_DUDA.formula.mod)?" reciente":""}">
-    <div class="ficha-tope"><h3>${esc(REGLA_DUDA.formula.t)}</h3>${esReciente(REGLA_DUDA.formula.mod)?'<span class="marbete m-nuevo">nuevo</span>':""}</div>
-    <p style="margin:0 0 6px;font-size:14.5px">${esc(REGLA_DUDA.formula.d)}</p>
-    <ul class="condiciones" style="margin:0 0 12px">${REGLA_DUDA.formula.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-    <p class="cita" style="margin-bottom:12px">${esc(REGLA_DUDA.formula.cierre)}</p>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(REGLA_DUDA.formula.sinRegla)}</p>
-  </div>
-
-  <h2>Comunicación con el cliente</h2>
-  <div class="ficha" style="border-left:2px solid var(--nuevo)">
-    <div class="ficha-tope"><h3>Qué recibe el cliente y por dónde</h3></div>
-    <p class="cita" style="margin-bottom:12px">${esc(COM_CLIENTE.regla)}</p>
-    <ul class="lista" style="font-size:14.5px">${COM_CLIENTE.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-  </div>
-  ${COM_CLIENTE.porque.map(x=>`<div class="ficha"><div class="ficha-tope"><h3>${esc(x.t)}</h3></div>
-    <p style="margin:0;font-size:14.5px;color:var(--soft)">${esc(x.d)}</p></div>`).join("")}
-  <div class="vacio-caja">
-    <h3>Bitácora sobre el VPS · ${esc(BITACORA_VPS.estado)}</h3>
-    <p>${esc(BITACORA_VPS.d)}</p>
-    <p style="margin:10px 0 8px">Lo que tiene que cumplir:</p>
-    <ul class="lista" style="font-size:14.5px;margin-bottom:10px">${BITACORA_VPS.req.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-  </div>
-
-  <h2>Comunicación interna</h2>
-  <div class="ficha"${esReciente(COMUNICACION.f)?' style="border-left:2px solid var(--nuevo)"':''}>
-    <div class="ficha-tope"><h3>Qué va por Zoho y qué puede ser verbal</h3>
-      ${esReciente(COMUNICACION.f)?'':''}</div>
-    <p class="cita" style="margin-bottom:12px">${esc(COMUNICACION.regla)}</p>
-    <ul class="lista" style="font-size:14.5px">${COMUNICACION.notas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-  </div>`;
+  h += `</table>`;
   setTimeout(()=>{
     document.querySelectorAll("[data-conf3]").forEach(b=> b.onclick = e=>{ e.stopPropagation(); ir("conflictos", b.dataset.conf3); });
     document.querySelectorAll("[data-etapa]").forEach(t=> t.onclick = ()=> ir("proceso", t.dataset.etapa));
@@ -2665,7 +2213,7 @@ function vEtapa(e){
     <p style="font-size:12.5px;color:var(--faint);margin:0 0 8px">Lo que tiene que ser cierto para poder mover la ficha.</p>
     <p style="margin:0;font-size:15px">${esc(e.s)}</p>
     ${e.salida?`<ul class="lista" style="margin-top:12px;font-size:14.5px">${e.salida.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
-    ${e.arbol?`<div class="fila-btn"><button class="btn" data-ar2="${e.arbol}">Resolver un caso de esta etapa</button></div>`:""}</div>`;
+    </div>`;
 
   const cf = conflictosDe(e.n);
   if(cf.length){
@@ -2696,16 +2244,9 @@ function vEtapa(e){
     h += `</div>`;
   }
 
-  const pts = PUNTOS.filter(p=> (e.n===8 || e.n===9) && p.c);
-  if(e.n===9){
-    h += `<h2>Qué revisa el jefe de contabilidad</h2>
-    <p style="max-width:70ch">La revisión se hace con HTTax, así que el contenido real de esta etapa son los 36 puntos de auditoría.</p>
-    <div class="fila-btn"><button class="btn" data-ir2="revision">Ver los 36 puntos</button></div>`;
-  }
 
   setTimeout(()=>{
     document.querySelector("[data-atras2]").onclick = ()=> ir("tablero");
-    document.querySelectorAll("[data-ar2]").forEach(b=> b.onclick = ()=>{ hilo = {a:b.dataset.ar2, cam:[]}; ir("consulta"); });
     document.querySelectorAll("[data-ir5]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir5));
     document.querySelectorAll("[data-conf6]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf6));
     document.querySelectorAll("[data-ir2]").forEach(b=> b.onclick = ()=> ir(b.dataset.ir2));
@@ -2730,51 +2271,9 @@ function vUbicaciones(){
 
 /* ---------- revisión de cierre ---------- */
 function vRevision(){
-  const manuales = PUNTOS.filter(p=>!p.a);
-  let h = `<h1>Qué debe lograr una revisión de cierre</h1>
-  <p class="entrada">Los 36 puntos de auditoría de HTTax son, de hecho, la definición operativa de la etapa 8. Son más completos y más exigentes que el manual y que la lista de Zoho juntos.</p>
-
-  <div class="aviso"><b>${manuales.length} de ${PUNTOS.length}</b><span>puntos no se pudieron automatizar. Son exactamente los rubros cuya política está en blanco.</span></div>
-
-  <div class="ficha" style="border-color:var(--guinda)">
-    <div class="ficha-tope"><h3>Los cuatro puntos cruciales</h3><span class="marbete m-alto">sin ellos no hay certeza</span></div>
-    <p style="margin:0 0 10px;font-size:14.5px;color:var(--soft)">Si alguno de estos cuatro no cuadra, no hay certeza para la revisión ni para los cálculos fiscales. Lo demás se revisa sobre terreno incierto.</p>
-    <ul class="lista" style="font-size:14.5px;margin:0">${PUNTOS.filter(p=>p.crucial).map(p=>`<li><b>Punto ${p.n}.</b> ${esc(p.t)}</li>`).join("")}</ul>
-  </div>
-
-  <p style="max-width:70ch">Una validación se automatiza cuando existe una regla que diga qué debe cuadrar contra qué. Donde no hay regla escrita, el programador no tuvo qué codificar y el punto se quedó en pregunta para el humano. La lista de puntos manuales es el backlog de políticas faltantes, medido por el propio sistema.</p>
-
-  <table class="datos" style="margin-top:14px"><tr><th style="width:44px">#</th><th style="width:38%">Punto sin automatizar</th><th>Por qué se quedó a mano</th></tr>`;
-  manuales.forEach(p=> h += `<tr><td class="sig" style="color:var(--guinda)">${p.n}</td>
-    <td style="font-family:var(--serif);font-size:15px">${esc(p.t)}</td>
-    <td style="color:var(--soft)">${esc(p.falta||"")}</td></tr>`);
-  h += `</table>
-  <p class="nota">Escribir esas cuatro políticas no es trabajo de documentación: es lo que falta para automatizar cinco puntos más y bajar la revisión manual de cinco a cero.</p>`;
-
-  h += `<h2>Las cinco capas</h2>
-  <p class="entrada" style="margin-bottom:18px">Los 36 puntos no son una lista plana: son cinco preguntas encadenadas, y cada capa solo tiene sentido si la anterior ya cerró. Una sola excepción sin justificación escrita en cualquiera de las cinco detiene el cierre.</p>`;
-
-  ["A","B","C","D","E"].forEach(k=>{
-    const ps = PUNTOS.filter(p=>p.c===k).sort((a,b)=>a.n-b.n);
-    h += `<h3 style="font-family:var(--serif);font-size:19px;font-weight:600;margin:26px 0 4px">${esc(CAPAS[k].n)}</h3>
-    <p style="max-width:70ch;color:var(--soft);font-size:14.5px;margin:0 0 10px">${esc(CAPAS[k].d)}</p>
-    <table class="datos"><tr><th style="width:44px">#</th><th>Punto</th><th style="width:78px">Cálculo</th></tr>`;
-    ps.forEach(p=>{
-      let extra = "";
-      if(p.p) extra += `<div style="margin-top:5px;font-size:13px;color:var(--ok)">Respaldado por ${esc(p.p)}</div>`;
-      if(p.falta) extra += `<div style="margin-top:5px;font-size:13px;color:var(--guinda)">${esc(p.falta)}</div>`;
-      if(p.nota) extra += `<div style="margin-top:5px;font-size:13px;color:var(--warn)">${esc(p.nota)}</div>`;
-      if(p.z) extra += `<div style="margin-top:5px;font-size:13px;color:var(--faint)">Duplica el punto ${p.z} de la lista de Zoho.</div>`;
-      if(p.ch && !resuelto(p.ch)) extra += `<div style="margin-top:5px;font-size:13px"><button data-conf4="${p.ch}" style="background:none;border:0;padding:0;color:var(--guinda);text-decoration:underline;font-size:13px">en disputa</button></div>`;
-      h += `<tr id="p-${p.n}"><td class="sig" style="color:${p.crucial?'var(--guinda)':'var(--faint)'};font-weight:${p.crucial?'600':'400'}">${p.n}</td>
-        <td style="font-family:var(--serif);font-size:15px">${esc(p.t)}${p.crucial?' <span class="marbete m-alto">crucial</span>':''}${extra}</td>
-        <td><span class="marbete ${p.a?'m-gris':'m-alto'}">${p.a?"auto":"a mano"}</span></td></tr>`;
-    });
-    h += `</table>`;
-  });
-
-  setTimeout(()=> document.querySelectorAll("[data-conf4]").forEach(b=> b.onclick = ()=> ir("conflictos", b.dataset.conf4)),0);
-  return h;
+  return `<h1>Revisión de cierre</h1>
+    <div class="vacio-caja"><h3>Sin contenido</h3>
+      <p>Esta sección está lista para recibir los puntos de auditoría cuando se decidan.</p></div>`;
 }
 
 /* ---------- formato de CB ---------- */
@@ -2920,9 +2419,6 @@ const TERMINOS = [];
       "Otra cuenta, no un sinónimo. Ahí va el IVA no acreditable por factor de acreditamiento del artículo 5 de LIVA o por proporción de público en general de los RIF.", "cuentas", "gastos", true);
   ETAPAS.forEach(e=>{
     add("etapa "+e.n, "Etapa del cierre", e.n+". "+e.t, e.s, "proceso", String(e.n), false);
-  });
-  PUNTOS.forEach(p=>{
-    add("punto "+p.n, "Punto de auditoría", "Punto "+p.n+" de HTTax", p.t, "revision", null, false);
   });
   // términos que no van al glosario pero sí se explican al pasar el cursor
   ["cascada","cascada de caja"].forEach(v=>
@@ -3103,40 +2599,69 @@ document.getElementById("swEnlaces").addEventListener("click", function(){
    BUSCADOR
    ============================================================ */
 const INDICE = [];
-SIGLAS.forEach(s => INDICE.push({t:"Glosario", n:s.s, d:s.d || "sin definir", v:"glosario", id:"g-"+slug(s.s)}));
+
+/* Cada entrada guarda en .x todo su texto, para que el buscador encuentre
+   cualquier palabra o frase que exista en la app, no solo el título. */
+const norm = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const plano = v => Array.isArray(v) ? v.map(plano).join(" ")
+  : (v && typeof v === "object") ? Object.values(v).map(plano).join(" ")
+  : String(v ?? "").replace(/<[^>]+>/g," ");
+
+function idx(t, n, d, v, id, ...extra){
+  const x = norm([t, n, d, ...extra.map(plano)].join(" "));
+  INDICE.push({t, n:n || "", d:d || "", v, id, x});
+}
+
+SIGLAS.forEach(s => idx("Glosario", s.s, s.d || "sin definir", "glosario", "g-"+slug(s.s), s.ev, s.u));
+
 CUENTAS.forEach(c => {
-  INDICE.push({t:"Política de registro", n:c.n, d:c.resumen || "sin criterio escrito", v:"cuentas", id:c.id});
-  c.registro.forEach(r => INDICE.push({t:"Regla · "+c.n, n:r.f, d:r.t, v:"cuentas", id:c.id}));
-  c.revision.forEach(r => INDICE.push({t:"Revisión · "+c.n, n:r.f, d:r.t, v:"cuentas", id:c.id}));
+  idx("Política de registro", c.n, resumenTexto(c), "cuentas", c.id, c.subcuentas);
+  (c.generales||[]).forEach(r => idx("Regla general · "+c.n, c.n, r.t, "cuentas", c.id, r.sub, r.nota, r.f));
+  c.registro.forEach(r => idx("Regla · "+c.n, r.f || c.n, r.t, "cuentas", c.id, r.sub, r.nota, r.cierre));
+  c.revision.forEach(r => idx("Revisión · "+c.n, r.f || c.n, r.t, "cuentas", c.id, r.sub, r.nota, r.cierre));
 });
-CONFLICTOS.forEach(c => INDICE.push({t:"Contradicción", n:c.t, d:c.pide, v:"conflictos", id:c.id}));
-FALTANTES.forEach(f => INDICE.push({t:"Regla por escribir", n:f.r, d:f.c, v:"faltantes"}));
-ETAPAS.forEach(e => { INDICE.push({t:"Etapa "+e.n, n:e.t, d:e.s || "no está escrito cuándo se puede pasar", v:"proceso", id:String(e.n)});
-  e.subs.forEach(x => INDICE.push({t:"Subproceso · etapa "+e.n, n:x.t, d:x.sol || x.prob || x.acl || e.t, v:"proceso", id:String(e.n)})); });
-PUNTOS.forEach(p => INDICE.push({t:"Punto de auditoría "+p.n, n:p.t, d:p.falta || p.p || p.nota || (p.a?"Automatizado en HTTax":"Se responde a mano"), v:"revision", id:"p-"+p.n}));
+
+CONFLICTOS.forEach(c => idx("Contradicción", c.t, c.pide, "conflictos", c.id, c.a, c.b, c.porq, c.d));
+FALTANTES.forEach(f => idx("Regla por escribir", f.r, f.c, "faltantes"));
+
+ETAPAS.forEach(e => {
+  idx("Etapa "+e.n, e.t, e.s || "no está escrito cuándo se puede pasar", "proceso", String(e.n), e.z, e.r, e.d);
+  e.subs.forEach(x => idx("Subproceso · etapa "+e.n, x.t, x.sol || x.prob || x.acl || e.t, "proceso", String(e.n), x.acl, x.prob, x.sol));
+});
+
+
 FORMATO_CB.secciones.forEach(sec=>{
   const rs = sec.grupos ? sec.grupos.flatMap(g=>g.reglas) : sec.reglas;
-  INDICE.push({t:"Formato de CB", n:sec.n, d:sec.d || sec.sig || "", v:"formato", id:"f-"+sec.id});
-  rs.forEach(r => INDICE.push({t:"Formato de CB · "+sec.n, n:r.t.slice(0,70), d:r.nota || r.t, v:"formato", id:"f-"+sec.id}));
+  idx("Formato de CB", sec.n, sec.d || sec.sig || "", "formato", "f-"+sec.id, sec.sig, sec.nota);
+  rs.forEach(r => idx("Formato de CB · "+sec.n, r.t.slice(0,70), r.t, "formato", "f-"+sec.id, r.sub, r.cierre, r.nota, r.notaSub));
+  (sec.grupos||[]).forEach(g => idx("Formato de CB · "+sec.n, g.n, g.n, "formato", "f-"+sec.id));
 });
-EJEMPLOS_CB.forEach(e => INDICE.push({t:"Ejemplo de conciliación", n:e.t, d:e.d, v:"formato", id:"f-"+e.sec}));
-REGLAS_GENERALES.reglas.forEach(r=> INDICE.push({t:"Reglas generales de registro", n:REGLAS_GENERALES.t, d:r.h.replace(/<[^>]+>/g,""), v:"cuentas"}));
-INDICE.push({t:"Política", n:"Cuando no hay regla", d:REGLA_DUDA.regla, v:"proceso"});
-INDICE.push({t:"Política", n:"Comunicación interna", d:COMUNICACION.regla, v:"proceso"});
-INDICE.push({t:"Política", n:"Comunicación con el cliente", d:COM_CLIENTE.regla, v:"proceso"});
-INDICE.push({t:"En planes", n:"Bitácora sobre el VPS", d:BITACORA_VPS.d, v:"proceso"});
-CAMBIOS.forEach(c => INDICE.push({t:"Modificación · "+fechaLarga(c.f), n:c.t, d:c.d, v:"cambios"}));
-ETAPAS.forEach(e => INDICE.push({t:"Estado de Zoho", n:e.z, d:"Corresponde a la etapa "+e.n+", "+e.t, v:"proceso", id:String(e.n)}));
-FORMAS_PAGO.forEach(f => INDICE.push({t:"Forma de pago "+f.c, n:f.n, d:f.t, v:"glosario", id:"g-fp-"+f.c}));
+EJEMPLOS_CB.forEach(e => idx("Ejemplo de conciliación", e.t, e.d, "formato", "f-"+e.sec, e.r, e.asiento));
+
+CHECKLIST.forEach(c => idx("Lista de comprobación", c.t, c.nota || c.ht || "", "proceso", null, c.ht, c.nota));
+UBICACIONES.forEach(u => idx("Dónde vive", u.n, u.c || "", "ubicaciones", null, u.u));
+
+REGLAS_GENERALES.reglas.forEach(r=> idx("Reglas generales de registro", REGLAS_GENERALES.t, plano(r.h), "cuentas", null, REGLAS_GENERALES.notaH));
+idx("Portada", PRINCIPIO.t, PRINCIPIO.d, "tablero", null, PRINCIPIO.pasos, PRINCIPIO.forma);
+idx("Política", "Cuando no hay regla", REGLA_DUDA.regla, "proceso", null, REGLA_DUDA.notas);
+idx("Política", REGLA_DUDA.formula.t, REGLA_DUDA.formula.d, "proceso", null, REGLA_DUDA.formula.pasos, REGLA_DUDA.formula.cierre, REGLA_DUDA.formula.sinRegla);
+idx("Política", "Comunicación interna", COMUNICACION.regla, "proceso", null, COMUNICACION.notas);
+idx("Política", "Comunicación con el cliente", COM_CLIENTE.regla, "proceso", null, COM_CLIENTE.notas, COM_CLIENTE.porque);
+CAMBIOS.forEach(c => idx("Modificación · "+fechaLarga(c.f), c.t, c.d, "cambios"));
+ETAPAS.forEach(e => idx("Estado de Zoho", e.z, "Corresponde a la etapa "+e.n+", "+e.t, "proceso", String(e.n)));
+FORMAS_PAGO.forEach(f => idx("Forma de pago "+f.c, f.n, f.t, "glosario", "g-fp-"+f.c));
 
 const qi = document.getElementById("q"), rd = document.getElementById("res");
 qi.addEventListener("input", ()=>{
-  const t = qi.value.trim().toLowerCase();
-  if(t.length < 2){ rd.hidden = true; return; }
-  const hits = INDICE.filter(x => (x.n+" "+x.d+" "+x.t).toLowerCase().includes(t)).slice(0,12);
+  const crudo = qi.value.trim();
+  if(crudo.length < 2){ rd.hidden = true; return; }
+  // entre comillas busca la frase tal cual; si no, cada palabra en cualquier orden
+  const frase = crudo.match(/^"(.+)"$/);
+  const terminos = frase ? [norm(frase[1])] : norm(crudo).split(/\s+/).filter(Boolean);
+  const hits = INDICE.filter(x => terminos.every(t => x.x.includes(t))).slice(0,20);
   if(!hits.length){
     rd.innerHTML = `<button disabled style="color:var(--faint);cursor:default"><span class="rtipo">Sin coincidencias</span>
-      <span class="rtxt">Si el caso existe y no está aquí, es una regla por escribir.</span></button>`;
+      <span class="rtxt">Se buscó en todo el texto de la app. Si el caso existe y no está aquí, es una regla por escribir.</span></button>`;
   }else{
     rd.innerHTML = hits.map((x,i)=>
       `<button data-h="${i}"><span class="rtipo">${esc(x.t)}</span>${esc(x.n)}
